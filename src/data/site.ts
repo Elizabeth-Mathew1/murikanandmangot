@@ -2,7 +2,7 @@ export const SITE = {
   name: 'Murikan & Mangot',
   tagline: 'Advocates & Legal Consultants',
   location: 'Ernakulam, Kochi, Kerala',
-  url: 'https://murikanmangot.in',
+  url: 'https://murikanandmangot.com',
   phone: '+91 484 XXX XXXX',
   email: 'contact@murikanmangot.com',
   address: {
