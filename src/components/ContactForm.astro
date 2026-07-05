@@ -1,0 +1,96 @@
+<form
+  class="contact-form"
+  action="https://formspree.io/f/PLACEHOLDER"
+  method="POST"
+>
+  <p class="contact-form__eyebrow eyebrow eyebrow--light">Get in Touch</p>
+  <h2 class="contact-form__title">Send Us a Message</h2>
+
+  <div class="contact-form__field">
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="name" required autocomplete="name" placeholder="Enter your name" />
+  </div>
+
+  <div class="contact-form__field">
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email" required autocomplete="email" placeholder="your@email.com" />
+  </div>
+
+  <div class="contact-form__field">
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="+91" />
+  </div>
+
+  <div class="contact-form__field">
+    <label for="matter">Matter Type</label>
+    <select id="matter" name="matter" required>
+      <option value="" disabled selected>Select a practice area</option>
+      <option value="Property & Land">Property & Land</option>
+      <option value="Corporate & Commercial">Corporate & Commercial</option>
+      <option value="Family & Succession">Family & Succession</option>
+      <option value="Disputes & Litigation">Disputes & Litigation</option>
+      <option value="Other">Other</option>
+    </select>
+  </div>
+
+  <div class="contact-form__field">
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="5" required placeholder="Briefly describe your legal matter…"></textarea>
+  </div>
+
+  <button type="submit" class="btn btn--primary contact-form__submit">Send Message</button>
+</form>
+
+<style>
+  .contact-form {
+    background-color: var(--color-ivory);
+    padding: var(--space-4);
+    border-radius: var(--radius-card);
+  }
+
+  .contact-form__title {
+    font-size: clamp(1.5rem, 3vw, 1.75rem);
+    margin-bottom: var(--space-4);
+  }
+
+  .contact-form__field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    margin-bottom: var(--space-3);
+  }
+
+  .contact-form__field label {
+    font-size: var(--text-eyebrow);
+    font-weight: 500;
+    color: var(--color-body);
+  }
+
+  .contact-form__field input,
+  .contact-form__field select,
+  .contact-form__field textarea {
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-card-border);
+    border-radius: var(--radius-button);
+    padding: 0.75rem 1rem;
+    color: var(--color-body);
+    transition: border-color var(--transition-fast);
+  }
+
+  .contact-form__field input::placeholder,
+  .contact-form__field textarea::placeholder {
+    color: var(--color-muted);
+  }
+
+  .contact-form__field input:focus,
+  .contact-form__field select:focus,
+  .contact-form__field textarea:focus {
+    outline: none;
+    border-color: var(--color-gold);
+  }
+
+  .contact-form__submit {
+    width: 100%;
+    margin-top: var(--space-1);
+  }
+</style>

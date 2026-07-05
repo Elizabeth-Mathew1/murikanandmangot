@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <meta name="design_doc_mode" content="canvas">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+</helmet>
+
+<!-- ═══════════════ BOARD TITLE ═══════════════ -->
+<div style="position:absolute;left:80px;top:40px">
+  <div style="font:500 30px/1.1 'EB Garamond',serif;color:#1E1B19">Murikan &amp; Mangot</div>
+  <div style="font:500 11px/1 Montserrat,sans-serif;color:#B0894B;letter-spacing:0.15em;text-transform:uppercase;margin-top:8px">Design System · v1.0</div>
+</div>
+
+<!-- ═══════════════ COLOUR PALETTE ═══════════════ -->
+<div style="position:absolute;left:80px;top:120px;font:500 12px/1 Montserrat,sans-serif;color:#8A6A2E;letter-spacing:0.1em;text-transform:uppercase">Colour Palette</div>
+
+<div style="position:absolute;left:80px;top:155px;width:1520px">
+  <div data-drags-parent="1" style="position:absolute;top:-22px;font:500 11px/1 system-ui,sans-serif;color:rgba(60,50,40,.5)">All colour tokens</div>
+  <div style="background:#fff;border-radius:2px;box-shadow:0 1px 3px rgba(0,0,0,.08);padding:36px 40px">
+    <!-- Core -->
+    <div style="font:500 10px/1 Montserrat,sans-serif;color:#6E665E;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:14px">Core Palette</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px">
+      <!-- Ink / Charcoal -->
+      <div>
+        <div style="height:80px;background:#1E1B19;border-radius:3px;display:flex;align-items:flex-end;padding:10px 12px">
+          <span style="font:500 11px/1 'Courier New',monospace;color:#E8E0D2">#1E1B19</span>
+        </div>
+        <div style="font:500 13px/1 Montserrat,sans-serif;color:#1E1B19;margin-top:8px">Ink / Charcoal</div>
+        <div style="font:400 11px/1.3 Montserrat,sans-serif;color:#6E665E;margin-top:3px">Headings, dark sections, footer</div>
+      </div>
+      <!-- Antique Gold -->
+      <div>
+        <div style="height:80px;background:#B0894B;border-radius:3px;display:flex;align-items:flex-end;padding:10px 12px">
+          <span style="font:500 11px/1 'Courier New',monospace;color:#1E1B19">#B0894B</span>
+        </div>
+        <div style="font:500 13px/1 Montserrat,sans-serif;color:#1E1B19;margin-top:8px">Antique Gold</div>
+        <div style="font:400 11px/1.3 Montserrat,sans-serif;color:#6E665E;margin-top:3px">Primary accent, buttons</div>
+      </div>
+      <!-- Ivory -->
+      <div>
+        <div style="height:80px;background:#F4EFE4;border-radius:3px;border:1px solid #E6DECC;display:flex;align-items:flex-end;padding:10px 12px">
+          <span style="font:500 11px/1 'Courier New',monospace;color:#3A3531">#F4EFE4</span>
+        </div>
+        <div style="font:500 13px/1 Montserrat,sans-serif;color:#1E1B19;margin-top:8px">Ivory</div>
+        <div style="font:400 11px/1.3 Montserrat,sans-serif;color:#6E665E;margin-top:3px">Page background</div>
+      </div>
+    </div>
+    <!-- Extended -->
+    <div style="font:500 10px/1 Montserrat,sans-serif;color:#6E665E;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:14px">Extended Palette</div>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px">
+      <div>
+        <div style="height:56px;background:#2A2622;border-radius:3px;display:flex;align-items:flex-end;padding:8px 10px"><span style="font:500 10px/1 'Courier New',monospace;color:#E8E0D2">#2A2622</span></div>
+        <div style="font:500 11px/1 Montserrat,sans-serif;color:#1E1B19;margin-top:6px">Hero Overlay</div>
+        <div style="font:400 10px/1.3 Montserrat,sans-serif;color:#6E665E;margin-top:2px">Image overlay base</div>
+      </div>
+      <div>
+        <div style="height:56px;background:#C9A35C;border-radius:3px;display:flex;align-items:flex-end;padding:8px 10px"><span style="font:500 10px/1 'Courier New',monospace;color:#1E1B19">#C9A35C</span></div>
+        <div style="font:500 11px/1 Montserrat,sans-serif;color:#1E1B19;margin-top:6px">Gold on Dark</div>
+        <div style="font:400 10px/1.3 Montserrat,sans-serif;color:#6E665E;margin-top:2px">Icons, eyebrows on dark</div>
+      </div>
+      <div>
+        <div style="height:56px;background:#8A6A2E;border-radius:3px;display:flex;align-items:flex-end;padding:8px 10px"><span style="font:500 10px/1 'Courier New',monospace;color:#FFFFFF">#8A6A2E</span></div>
+        <div style="font:500 11px/1 Montserrat,sans-serif;color:#1E1B19;margin-top:6px">Deep Gold</div>
+        <div style="font:400 10px/1.3 Montserrat,sans-serif;color:#6E665E;margin-top:2px">Links, eyebrows on light</div>
+      </div>
+      <div>
+        <div style="height:56px;background:#3A3531;border-radius:3px;display:flex;align-items:flex-end;padding:8px 10px"><span style="font:500 10px/1 'Courier New',monospace;color:#E8E0D2">#3A3531</span></div>
+        <div style="font:500 11px/1 Montserrat,sans-serif;color:#1E1B19;margin-top:6px">Body Text</div>
+        <div style="font:400 10px/1.3 Montserrat,sans-serif;color:#6E665E;margin-top:2px">Primary body copy</div>
+      </div>
+      <div>
+        <div style="height:56px;background:#6E665E;border-radius:3px;display:flex;align-items:flex-end;padding:8px 10px"><span style="font:500 10px/1 'Courier New',monospace;color:#F4EFE4">#6E665E</span></div>
+        <div style="font:500 11px/1 Montserrat,sans-serif;color:#1E1B19;margin-top:6px">Muted Text</div>
+        <div style="font:400 10px/1.3 Montserrat,sans-serif;color:#6E665E;margin-top:2px">Secondary text</div>
+      </div>
+      <div>
+        <div style="height:56px;background:#FFFFFF;border-radius:3px;border:1px solid #E6DECC;display:flex;align-items:flex-end;padding:8px 10px"><span style="font:500 10px/1 'Courier New',monospace;color:#3A3531">#FFFFFF</span></div>
+        <div style="font:500 11px/1 Montserrat,sans-serif;color:#1E1B19;margin-top:6px">Card Background</div>
+        <div style="font:400 10px/1.3 Montserrat,sans-serif;color:#6E665E;margin-top:2px">Card surfaces</div>
+      </div>
+      <div>
+        <div style="height:56px;background:#E6DECC;border-radius:3px;display:flex;align-items:flex-end;padding:8px 10px"><span style="font:500 10px/1 'Courier New',monospace;color:#3A3531">#E6DECC</span></div>
+        <div style="font:500 11px/1 Montserrat,sans-serif;color:#1E1B19;margin-top:6px">Card Border</div>
+        <div style="font:400 10px/1.3 Montserrat,sans-serif;color:#6E665E;margin-top:2px">Borders, dividers</div>
+      </div>
+      <div>
+        <div style="height:56px;background:#D9C9A0;border-radius:3px;display:flex;align-items:flex-end;padding:8px 10px"><span style="font:500 10px/1 'Courier New',monospace;color:#3A3531">#D9C9A0</span></div>
+        <div style="font:500 11px/1 Montserrat,sans-serif;color:#1E1B19;margin-top:6px">Gold Hairline</div>
+        <div style="font:400 10px/1.3 Montserrat,sans-serif;color:#6E665E;margin-top:2px">Decorative rules</div>
+      </div>
+      <div>
+        <div style="height:56px;background:#1E1B19;border-radius:3px;display:flex;align-items:center;justify-content:center"><span style="font:500 13px/1 Montserrat,sans-serif;color:#E8E0D2">Aa</span></div>
+        <div style="font:500 11px/1 Montserrat,sans-serif;color:#1E1B19;margin-top:6px">Text on Dark</div>
+        <div style="font:400 10px/1.3 Montserrat,sans-serif;color:#6E665E;margin-top:2px">#E8E0D2 · Body on dark</div>
+      </div>
+      <div>
+        <div style="height:56px;background:#1E1B19;border-radius:3px;display:flex;align-items:center;justify-content:center"><span style="font:500 13px/1 Montserrat,sans-serif;color:#B5AB99">Aa</span></div>
+        <div style="font:500 11px/1 Montserrat,sans-serif;color:#1E1B19;margin-top:6px">Muted on Dark</div>
+        <div style="font:400 10px/1.3 Montserrat,sans-serif;color:#6E665E;margin-top:2px">#B5AB99 · Secondary on dark</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ TYPOGRAPHY ═══════════════ -->
+<div style="position:absolute;left:80px;top:650px;font:500 12px/1 Montserrat,sans-serif;color:#8A6A2E;letter-spacing:0.1em;text-transform:uppercase">Typography</div>
+
+<div style="position:absolute;left:80px;top:685px;width:1520px">
+  <div data-drags-parent="1" style="position:absolute;top:-22px;font:500 11px/1 system-ui,sans-serif;color:rgba(60,50,40,.5)">Type specimens — EB Garamond + Montserrat</div>
+  <div style="background:#fff;border-radius:2px;box-shadow:0 1px 3px rgba(0,0,0,.08);padding:36px 40px">
+    <!-- H1 -->
+    <div style="display:flex;gap:48px;align-items:flex-start;padding-bottom:24px;border-bottom:1px solid #E6DECC">
+      <div style="min-width:210px;flex-shrink:0;padding-top:8px">
+        <div style="font:500 13px/1 Montserrat,sans-serif;color:#1E1B19">H1 — Hero Heading</div>
+        <div style="font:400 11px/1.5 Montserrat,sans-serif;color:#6E665E;margin-top:6px">EB Garamond 500<br>56px · line-height 1.15<br>Colour: Ink #1E1B19</div>
+      </div>
+      <div style="font:500 56px/1.15 'EB Garamond',serif;color:#1E1B19">Trusted counsel, rooted in Kerala</div>
+    </div>
+    <!-- H2 -->
+    <div style="display:flex;gap:48px;align-items:flex-start;padding:24px 0;border-bottom:1px solid #E6DECC">
+      <div style="min-width:210px;flex-shrink:0;padding-top:4px">
+        <div style="font:500 13px/1 Montserrat,sans-serif;color:#1E1B19">H2 — Section Heading</div>
+        <div style="font:400 11px/1.5 Montserrat,sans-serif;color:#6E665E;margin-top:6px">EB Garamond 500<br>34px · line-height 1.2<br>Colour: Ink #1E1B19</div>
+      </div>
+      <div style="font:500 34px/1.2 'EB Garamond',serif;color:#1E1B19">Our Practice Areas</div>
+    </div>
+    <!-- H3 -->
+    <div style="display:flex;gap:48px;align-items:flex-start;padding:24px 0;border-bottom:1px solid #E6DECC">
+      <div style="min-width:210px;flex-shrink:0;padding-top:2px">
+        <div style="font:500 13px/1 Montserrat,sans-serif;color:#1E1B19">H3 — Card Title</div>
+        <div style="font:400 11px/1.5 Montserrat,sans-serif;color:#6E665E;margin-top:6px">EB Garamond 500<br>20px · line-height 1.3<br>Colour: Ink #1E1B19</div>
+      </div>
+      <div style="font:500 20px/1.3 'EB Garamond',serif;color:#1E1B19">Property &amp; Land Law</div>
+    </div>
+    <!-- Body -->
+    <div style="display:flex;gap:48px;align-items:flex-start;padding:24px 0;border-bottom:1px solid #E6DECC">
+      <div style="min-width:210px;flex-shrink:0;padding-top:2px">
+        <div style="font:500 13px/1 Montserrat,sans-serif;color:#1E1B19">Body</div>
+        <div style="font:400 11px/1.5 Montserrat,sans-serif;color:#6E665E;margin-top:6px">Montserrat 400<br>16px · line-height 1.6<br>Colour: Body Text #3A3531</div>
+      </div>
+      <div style="font:400 16px/1.6 Montserrat,sans-serif;color:#3A3531;max-width:640px">We guide individuals and businesses through complex legal matters with care, clarity, and discretion. Our team brings decades of experience practising before the High Court of Kerala.</div>
+    </div>
+    <!-- Caption -->
+    <div style="display:flex;gap:48px;align-items:flex-start;padding:24px 0;border-bottom:1px solid #E6DECC">
+      <div style="min-width:210px;flex-shrink:0;padding-top:1px">
+        <div style="font:500 13px/1 Montserrat,sans-serif;color:#1E1B19">Caption / Small</div>
+        <div style="font:400 11px/1.5 Montserrat,sans-serif;color:#6E665E;margin-top:6px">Montserrat 400<br>13px · line-height 1.5<br>Colour: Muted #6E665E</div>
+      </div>
+      <div style="font:400 13px/1.5 Montserrat,sans-serif;color:#6E665E">Published 15 March 2025 · 4 min read</div>
+    </div>
+    <!-- Eyebrow -->
+    <div style="display:flex;gap:48px;align-items:flex-start;padding:24px 0;border-bottom:1px solid #E6DECC">
+      <div style="min-width:210px;flex-shrink:0;padding-top:1px">
+        <div style="font:500 13px/1 Montserrat,sans-serif;color:#1E1B19">Eyebrow</div>
+        <div style="font:400 11px/1.5 Montserrat,sans-serif;color:#6E665E;margin-top:6px">Montserrat 500 uppercase<br>12px · letter-spacing 0.08em<br>Light: Deep Gold #8A6A2E<br>Dark: Gold #C9A35C</div>
+      </div>
+      <div style="display:flex;gap:32px;align-items:center">
+        <div>
+          <div style="font:400 10px/1 Montserrat,sans-serif;color:#6E665E;margin-bottom:8px">On light</div>
+          <div style="font:500 12px/1 Montserrat,sans-serif;color:#8A6A2E;letter-spacing:0.08em;text-transform:uppercase">Practice Areas</div>
+        </div>
+        <div style="background:#1E1B19;padding:12px 20px;border-radius:3px">
+          <div style="font:400 10px/1 Montserrat,sans-serif;color:#B5AB99;margin-bottom:8px">On dark</div>
+          <div style="font:500 12px/1 Montserrat,sans-serif;color:#C9A35C;letter-spacing:0.08em;text-transform:uppercase">Practice Areas</div>
+        </div>
+      </div>
+    </div>
+    <!-- Link -->
+    <div style="display:flex;gap:48px;align-items:flex-start;padding-top:24px">
+      <div style="min-width:210px;flex-shrink:0;padding-top:1px">
+        <div style="font:500 13px/1 Montserrat,sans-serif;color:#1E1B19">Text Link</div>
+        <div style="font:400 11px/1.5 Montserrat,sans-serif;color:#6E665E;margin-top:6px">Montserrat 500<br>15px · Deep Gold #8A6A2E<br>Hover: underline</div>
+      </div>
+      <div style="display:flex;gap:32px;align-items:center">
+        <span style="font:500 15px/1 Montserrat,sans-serif;color:#8A6A2E">Learn more →</span>
+        <span style="font:500 15px/1 Montserrat,sans-serif;color:#8A6A2E;text-decoration:underline;text-underline-offset:3px">Learn more → (hover)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ SPACING & LAYOUT ═══════════════ -->
+<div style="position:absolute;left:80px;top:1280px;font:500 12px/1 Montserrat,sans-serif;color:#8A6A2E;letter-spacing:0.1em;text-transform:uppercase">Spacing &amp; Layout</div>
+
+<div style="position:absolute;left:80px;top:1315px;width:720px">
+  <div data-drags-parent="1" style="position:absolute;top:-22px;font:500 11px/1 system-ui,sans-serif;color:rgba(60,50,40,.5)">8px base unit · 12-column grid</div>
+  <div style="background:#fff;border-radius:2px;box-shadow:0 1px 3px rgba(0,0,0,.08);padding:32px 40px">
+    <!-- Scale -->
+    <div style="font:500 10px/1 Montserrat,sans-serif;color:#6E665E;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px">Spacing Scale</div>
+    <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:28px">
+      <div style="display:flex;align-items:center;gap:12px"><div style="width:8px;height:16px;background:#B0894B;border-radius:1px;flex-shrink:0"></div><span style="font:400 11px/1 Montserrat,sans-serif;color:#3A3531">8px — Base unit</span></div>
+      <div style="display:flex;align-items:center;gap:12px"><div style="width:16px;height:16px;background:#B0894B;border-radius:1px;flex-shrink:0"></div><span style="font:400 11px/1 Montserrat,sans-serif;color:#3A3531">16px — Tight</span></div>
+      <div style="display:flex;align-items:center;gap:12px"><div style="width:24px;height:16px;background:#B0894B;border-radius:1px;flex-shrink:0"></div><span style="font:400 11px/1 Montserrat,sans-serif;color:#3A3531">24px — Small</span></div>
+      <div style="display:flex;align-items:center;gap:12px"><div style="width:32px;height:16px;background:#B0894B;border-radius:1px;flex-shrink:0"></div><span style="font:400 11px/1 Montserrat,sans-serif;color:#3A3531">32px — Medium</span></div>
+      <div style="display:flex;align-items:center;gap:12px"><div style="width:48px;height:16px;background:#B0894B;border-radius:1px;flex-shrink:0"></div><span style="font:400 11px/1 Montserrat,sans-serif;color:#3A3531">48px — Large</span></div>
+      <div style="display:flex;align-items:center;gap:12px"><div style="width:64px;height:16px;background:#B0894B;border-radius:1px;flex-shrink:0"></div><span style="font:400 11px/1 Montserrat,sans-serif;color:#3A3531">64px — XL</span></div>
+      <div style="display:flex;align-items:center;gap:12px"><div style="width:80px;height:16px;background:#D9C9A0;border-radius:1px;flex-shrink:0"></div><span style="font:400 11px/1 Montserrat,sans-serif;color:#3A3531">80px — Section padding (min)</span></div>
+      <div style="display:flex;align-items:center;gap:12px"><div style="width:96px;height:16px;background:#D9C9A0;border-radius:1px;flex-shrink:0"></div><span style="font:400 11px/1 Montserrat,sans-serif;color:#3A3531">96px — Section padding (max)</span></div>
+    </div>
+    <!-- Grid -->
+    <div style="font:500 10px/1 Montserrat,sans-serif;color:#6E665E;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:12px">Grid</div>
+    <div style="font:400 13px/1.6 Montserrat,sans-serif;color:#3A3531">12-column grid · Max width 1280px · Centred<br>Column gutter: 24px · Outer margin: 80px (desktop), 24px (mobile)<br>Content max-width for readable text: 640px</div>
+  </div>
+</div>
+
+<!-- Grid note post-it -->
+<div style="position:absolute;left:860px;top:1340px;background:#fef4a8;padding:14px 16px;font:12px/1.5 system-ui,sans-serif;color:#5a5030;box-shadow:0 1px 3px rgba(0,0,0,.08);max-width:200px;transform:rotate(-1deg);border-radius:1px">All spacing values use 8px multiples. Section vertical padding is 80–96px for generous editorial breathing room.</div>
+
+<!-- ═══════════════ COMPONENTS ═══════════════ -->
+<div style="position:absolute;left:80px;top:1640px;font:500 12px/1 Montserrat,sans-serif;color:#8A6A2E;letter-spacing:0.1em;text-transform:uppercase">Components</div>
+
+<!-- ——— TOP NAVIGATION ——— -->
+<div style="position:absolute;left:80px;top:1700px;width:1440px">
+  <div data-drags-parent="1" style="position:absolute;top:-22px;font:500 11px/1 system-ui,sans-serif;color:rgba(60,50,40,.5)">Top Navigation — hero overlay state</div>
+  <div style="background:#2A2622;border-radius:2px;box-shadow:0 1px 3px rgba(0,0,0,.08);overflow:hidden">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:80px">
+      <div style="font:500 22px/1 'EB Garamond',serif;color:#F4EFE4;letter-spacing:0.01em">Murikan &amp; Mangot</div>
+      <div style="display:flex;align-items:center;gap:32px">
+        <span style="font:500 14px/1 Montserrat,sans-serif;color:#E8E0D2">About</span>
+        <span style="font:500 14px/1 Montserrat,sans-serif;color:#E8E0D2">Practice Areas</span>
+        <span style="font:500 14px/1 Montserrat,sans-serif;color:#E8E0D2">People</span>
+        <span style="font:500 14px/1 Montserrat,sans-serif;color:#E8E0D2">Insights</span>
+        <span style="font:500 14px/1 Montserrat,sans-serif;color:#E8E0D2">Contact</span>
+        <div style="border:1px solid #C9A35C;padding:10px 24px;border-radius:2px;margin-left:8px">
+          <span style="font:500 13px/1 Montserrat,sans-serif;color:#C9A35C;letter-spacing:0.02em">Talk to Us</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Nav scrolled state -->
+<div style="position:absolute;left:80px;top:1810px;width:1440px">
+  <div data-drags-parent="1" style="position:absolute;top:-22px;font:500 11px/1 system-ui,sans-serif;color:rgba(60,50,40,.5)">Top Navigation — scrolled / solid state</div>
+  <div style="background:#FFFFFF;border-radius:2px;box-shadow:0 1px 3px rgba(0,0,0,.08);border-bottom:1px solid #E6DECC;overflow:hidden">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:80px">
+      <div style="font:500 22px/1 'EB Garamond',serif;color:#1E1B19;letter-spacing:0.01em">Murikan &amp; Mangot</div>
+      <div style="display:flex;align-items:center;gap:32px">
+        <span style="font:500 14px/1 Montserrat,sans-serif;color:#3A3531">About</span>
+        <span style="font:500 14px/1 Montserrat,sans-serif;color:#3A3531">Practice Areas</span>
+        <span style="font:500 14px/1 Montserrat,sans-serif;color:#3A3531">People</span>
+        <span style="font:500 14px/1 Montserrat,sans-serif;color:#3A3531">Insights</span>
+        <span style="font:500 14px/1 Montserrat,sans-serif;color:#3A3531">Contact</span>
+        <div style="border:1.5px solid #B0894B;padding:10px 24px;border-radius:2px;margin-left:8px">
+          <span style="font:500 13px/1 Montserrat,sans-serif;color:#B0894B;letter-spacing:0.02em">Talk to Us</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ——— BUTTONS ——— -->
+<div style="position:absolute;left:80px;top:1950px;width:840px">
+  <div data-drags-parent="1" style="position:absolute;top:-22px;font:500 11px/1 system-ui,sans-serif;color:rgba(60,50,40,.5)">Buttons</div>
+  <div style="background:#fff;border-radius:2px;box-shadow:0 1px 3px rgba(0,0,0,.08);padding:32px 36px">
+    <div style="font:500 10px/1 Montserrat,sans-serif;color:#6E665E;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:20px">On Light Background</div>
+    <div style="background:#F4EFE4;padding:24px 28px;border-radius:3px;display:flex;gap:24px;align-items:center;margin-bottom:24px">
+      <div style="background:#B0894B;padding:14px 32px;border-radius:2px"><span style="font:500 14px/1 Montserrat,sans-serif;color:#1E1B19">Primary Button</span></div>
+      <div style="border:1.5px solid #B0894B;padding:13px 30px;border-radius:2px"><span style="font:500 14px/1 Montserrat,sans-serif;color:#B0894B">Secondary Button</span></div>
+      <span style="font:500 15px/1 Montserrat,sans-serif;color:#8A6A2E">Text link →</span>
+    </div>
+    <div style="font:500 10px/1 Montserrat,sans-serif;color:#6E665E;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:20px">On Dark Background</div>
+    <div style="background:#1E1B19;padding:24px 28px;border-radius:3px;display:flex;gap:24px;align-items:center">
+      <div style="background:#B0894B;padding:14px 32px;border-radius:2px"><span style="font:500 14px/1 Montserrat,sans-serif;color:#1E1B19">Primary Button</span></div>
+      <div style="border:1.5px solid #C9A35C;padding:13px 30px;border-radius:2px"><span style="font:500 14px/1 Montserrat,sans-serif;color:#C9A35C">Secondary Button</span></div>
+      <span style="font:500 15px/1 Montserrat,sans-serif;color:#C9A35C">Text link →</span>
+    </div>
+  </div>
+</div>
+
+<!-- Button note -->
+<div style="position:absolute;left:80px;top:2240px;background:#fef4a8;padding:12px 14px;font:12px/1.5 system-ui,sans-serif;color:#5a5030;box-shadow:0 1px 3px rgba(0,0,0,.08);max-width:220px;transform:rotate(0.5deg);border-radius:1px">Hover: Primary darkens 5%; Secondary fills with gold at 10% opacity. Transitions: 200ms ease.</div>
+
+<!-- ——— SECTION HEADING ——— -->
+<div style="position:absolute;left:1000px;top:1950px;width:520px">
+  <div data-drags-parent="1" style="position:absolute;top:-22px;font:500 11px/1 system-ui,sans-serif;color:rgba(60,50,40,.5)">Section Heading</div>
+  <div style="background:#F4EFE4;border-radius:2px;box-shadow:0 1px 3px rgba(0,0,0,.08);padding:48px">
+    <div style="font:500 12px/1 Montserrat,sans-serif;color:#8A6A2E;letter-spacing:0.08em;text-transform:uppercase">Practice Areas</div>
+    <div style="font:500 34px/1.2 'EB Garamond',serif;color:#1E1B19;margin-top:12px">What We Do</div>
+    <div style="width:34px;height:2px;background:#D9C9A0;margin-top:16px"></div>
+  </div>
+</div>
+
+<!-- Section heading on dark -->
+<div style="position:absolute;left:1000px;top:2120px;width:520px">
+  <div data-drags-parent="1" style="position:absolute;top:-22px;font:500 11px/1 system-ui,sans-serif;color:rgba(60,50,40,.5)">Section Heading — on dark</div>
+  <div style="background:#1E1B19;border-radius:2px;box-shadow:0 1px 3px rgba(0,0,0,.08);padding:48px">
+    <div style="font:500 12px/1 Montserrat,sans-serif;color:#C9A35C;letter-spacing:0.08em;text-transform:uppercase">Get in Touch</div>
+    <div style="font:500 34px/1.2 'EB Garamond',serif;color:#F4EFE4;margin-top:12px">Ready to Talk?</div>
+    <div style="width:34px;height:2px;background:#D9C9A0;margin-top:16px"></div>
+  </div>
+</div>
+
+<!-- ——— PRACTICE AREA CARD ——— -->
+<div style="position:absolute;left:80px;top:2340px;width:400px">
+  <div data-drags-parent="1" style="position:absolute;top:-22px;font:500 11px/1 system-ui,sans-serif;color:rgba(60,50,40,.5)">Practice Area Card</div>
+  <div style="background:#F4EFE4;border-radius:2px;box-shadow:0 1px 3px rgba(0,0,0,.08);padding:32px">
+    <div style="background:#FFFFFF;border:1px solid #E6DECC;border-radius:3px;padding:32px">
+      <!-- Icon placeholder -->
+      <div style="width:44px;height:44px;border:1.5px solid #D9C9A0;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:20px">
+        <div style="width:14px;height:14px;border:1.5px solid #C9A35C;border-radius:2px"></div>
+      </div>
+      <div style="font:500 20px/1.3 'EB Garamond',serif;color:#1E1B19">Property &amp; Land</div>
+      <div style="font:400 15px/1.6 Montserrat,sans-serif;color:#3A3531;margin-top:10px">Navigating property transactions, titles, and land disputes with thorough local knowledge.</div>
+      <div style="margin-top:20px"><span style="font:500 14px/1 Montserrat,sans-serif;color:#8A6A2E">Learn more →</span></div>
+    </div>
+    <div style="font:400 10px/1.4 'Courier New',monospace;color:#6E665E;margin-top:12px">Icon: line icon per area · Hover: border → #D9C9A0</div>
+  </div>
+</div>
+
+<!-- ——— PERSON CARD ——— -->
+<div style="position:absolute;left:560px;top:2340px;width:370px">
+  <div data-drags-parent="1" style="position:absolute;top:-22px;font:500 11px/1 system-ui,sans-serif;color:rgba(60,50,40,.5)">Person Card</div>
+  <div style="background:#F4EFE4;border-radius:2px;box-shadow:0 1px 3px rgba(0,0,0,.08);padding:32px">
+    <!-- Portrait placeholder -->
+    <div style="width:296px;height:340px;background-color:#E6DECC;background-image:repeating-linear-gradient(45deg,transparent,transparent 6px,rgba(185,169,137,.12) 6px,rgba(185,169,137,.12) 12px);display:flex;align-items:center;justify-content:center;border-radius:3px;overflow:hidden">
+      <span style="font:11px/1.5 'Courier New',monospace;color:#8A6A2E;text-align:center;opacity:0.7;padding:16px">PORTRAIT<br>Professional headshot<br>warm, natural light</span>
+    </div>
+    <div style="margin-top:16px">
+      <div style="font:500 20px/1.3 'EB Garamond',serif;color:#1E1B19">Adv. First Last</div>
+      <div style="font:500 13px/1 Montserrat,sans-serif;color:#B0894B;margin-top:6px">Senior Partner</div>
+      <div style="font:400 14px/1.5 Montserrat,sans-serif;color:#6E665E;margin-top:6px">Property &amp; Land, Disputes</div>
+      <div style="margin-top:12px"><span style="font:500 13px/1 Montserrat,sans-serif;color:#8A6A2E">View profile →</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ——— CREDIBILITY STRIP ——— -->
+<div style="position:absolute;left:80px;top:2870px;width:1440px">
+  <div data-drags-parent="1" style="position:absolute;top:-22px;font:500 11px/1 system-ui,sans-serif;color:rgba(60,50,40,.5)">Credibility Strip</div>
+  <div style="background:#1E1B19;border-radius:2px;box-shadow:0 1px 3px rgba(0,0,0,.08);display:flex;align-items:center;justify-content:center;gap:64px;padding:28px 48px">
+    <div style="display:flex;align-items:center;gap:14px">
+      <div style="width:32px;height:32px;border:1.5px solid #C9A35C;border-radius:50%;display:flex;align-items:center;justify-content:center"><div style="width:12px;height:12px;background:#C9A35C;border-radius:50%"></div></div>
+      <span style="font:500 13px/1.4 Montserrat,sans-serif;color:#E8E0D2">Practising before the<br>High Court of Kerala</span>
+    </div>
+    <div style="width:1px;height:36px;background:#D9C9A0;opacity:0.25"></div>
+    <div style="display:flex;align-items:center;gap:14px">
+      <div style="width:32px;height:32px;border:1.5px solid #C9A35C;border-radius:50%;display:flex;align-items:center;justify-content:center"><div style="width:12px;height:12px;background:#C9A35C;border-radius:50%"></div></div>
+      <span style="font:500 13px/1.4 Montserrat,sans-serif;color:#E8E0D2">Established in<br>Ernakulam</span>
+    </div>
+    <div style="width:1px;height:36px;background:#D9C9A0;opacity:0.25"></div>
+    <div style="display:flex;align-items:center;gap:14px">
+      <div style="width:32px;height:32px;border:1.5px solid #C9A35C;border-radius:50%;display:flex;align-items:center;justify-content:center"><div style="width:12px;height:12px;background:#C9A35C;border-radius:50%"></div></div>
+      <span style="font:500 13px/1.4 Montserrat,sans-serif;color:#E8E0D2">Ernakulam,<br>Kochi, Kerala</span>
+    </div>
+  </div>
+</div>
+
+<!-- Credibility note -->
+<div style="position:absolute;left:1000px;top:2960px;background:#fef4a8;padding:12px 14px;font:12px/1.5 system-ui,sans-serif;color:#5a5030;box-shadow:0 1px 3px rgba(0,0,0,.08);max-width:220px;transform:rotate(-0.5deg);border-radius:1px">Replace circle placeholders with thin line icons: a court building, a calendar, a map pin.</div>
+
+<!-- ——— HERO SECTION ——— -->
+<div style="position:absolute;left:80px;top:3050px;width:1440px">
+  <div data-drags-parent="1" style="position:absolute;top:-22px;font:500 11px/1 system-ui,sans-serif;color:rgba(60,50,40,.5)">Hero Section — homepage</div>
+  <div style="border-radius:2px;box-shadow:0 1px 3px rgba(0,0,0,.08);overflow:hidden;position:relative;height:560px">
+    <!-- Placeholder background -->
+    <div style="position:absolute;inset:0;background-color:#3A3531;background-image:repeating-linear-gradient(45deg,transparent,transparent 8px,rgba(255,255,255,.025) 8px,rgba(255,255,255,.025) 16px)"></div>
+    <div style="position:absolute;right:24px;bottom:20px;font:10px/1 'Courier New',monospace;color:rgba(255,255,255,.2)">PHOTO: Ernakulam High Court or Kochi waterfront at golden hour</div>
+    <!-- Scrim -->
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(30,27,25,.78) 0%,rgba(30,27,25,.55) 55%,rgba(30,27,25,.18) 100%)"></div>
+    <!-- Nav overlay -->
+    <div style="position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:80px">
+      <div style="font:500 22px/1 'EB Garamond',serif;color:#F4EFE4">Murikan &amp; Mangot</div>
+      <div style="display:flex;align-items:center;gap:32px">
+        <span style="font:500 14px/1 Montserrat,sans-serif;color:#E8E0D2">About</span>
+        <span style="font:500 14px/1 Montserrat,sans-serif;color:#E8E0D2">Practice Areas</span>
+        <span style="font:500 14px/1 Montserrat,sans-serif;color:#E8E0D2">People</span>
+        <span style="font:500 14px/1 Montserrat,sans-serif;color:#E8E0D2">Insights</span>
+        <span style="font:500 14px/1 Montserrat,sans-serif;color:#E8E0D2">Contact</span>
+        <div style="border:1px solid #C9A35C;padding:10px 24px;border-radius:2px;margin-left:8px"><span style="font:500 13px/1 Montserrat,sans-serif;color:#C9A35C">Talk to Us</span></div>
+      </div>
+    </div>
+    <!-- Hero content -->
+    <div style="position:relative;z-index:1;display:flex;flex-direction:column;justify-content:center;padding:0 80px;height:calc(100% - 80px)">
+      <div style="font:500 12px/1 Montserrat,sans-serif;color:#C9A35C;letter-spacing:0.08em;text-transform:uppercase">Advocates &amp; Legal Consultants · Ernakulam</div>
+      <div style="font:500 56px/1.12 'EB Garamond',serif;color:#FFFFFF;margin-top:20px;max-width:720px">Trusted counsel,<br>rooted in Kerala</div>
+      <div style="font:400 17px/1.55 Montserrat,sans-serif;color:#E8E0D2;margin-top:16px;max-width:540px">Guiding individuals and businesses through complex legal matters with care, clarity, and discretion.</div>
+      <div style="display:flex;gap:16px;margin-top:32px">
+        <div style="background:#B0894B;padding:14px 32px;border-radius:2px"><span style="font:500 14px/1 Montserrat,sans-serif;color:#1E1B19">Our Practice Areas</span></div>
+        <div style="border:1px solid #C9A35C;padding:14px 32px;border-radius:2px"><span style="font:500 14px/1 Montserrat,sans-serif;color:#C9A35C">Talk to Us</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ——— CTA BAND ——— -->
+<div style="position:absolute;left:80px;top:3690px;width:1440px">
+  <div data-drags-parent="1" style="position:absolute;top:-22px;font:500 11px/1 system-ui,sans-serif;color:rgba(60,50,40,.5)">CTA Band</div>
+  <div style="background:#1E1B19;border-radius:2px;box-shadow:0 1px 3px rgba(0,0,0,.08);padding:56px 80px;display:flex;flex-direction:column;align-items:center;text-align:center">
+    <div style="font:500 32px/1.2 'EB Garamond',serif;color:#F4EFE4">Ready to discuss your matter?</div>
+    <div style="font:400 16px/1.5 Montserrat,sans-serif;color:#B5AB99;margin-top:12px">Take the first step — reach out for a confidential consultation.</div>
+    <div style="background:#B0894B;padding:14px 36px;border-radius:2px;margin-top:28px"><span style="font:500 14px/1 Montserrat,sans-serif;color:#1E1B19">Book a Consultation</span></div>
+  </div>
+</div>
+
+<!-- ——— FOOTER ——— -->
+<div style="position:absolute;left:80px;top:3920px;width:1440px">
+  <div data-drags-parent="1" style="position:absolute;top:-22px;font:500 11px/1 system-ui,sans-serif;color:rgba(60,50,40,.5)">Footer</div>
+  <div style="background:#1E1B19;border-radius:2px;box-shadow:0 1px 3px rgba(0,0,0,.08);overflow:hidden">
+    <div style="padding:56px 64px;display:grid;grid-template-columns:1.3fr 0.8fr 1fr;gap:48px">
+      <!-- Col 1 -->
+      <div>
+        <div style="font:500 22px/1.2 'EB Garamond',serif;color:#F4EFE4">Murikan &amp; Mangot</div>
+        <div style="font:400 14px/1.7 Montserrat,sans-serif;color:#B5AB99;margin-top:16px">Advocates &amp; Legal Consultants<br>[Office Address]<br>Ernakulam, Kochi 682 0XX<br>Kerala, India</div>
+      </div>
+      <!-- Col 2 -->
+      <div>
+        <div style="font:500 12px/1 Montserrat,sans-serif;color:#C9A35C;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:20px">Quick Links</div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <span style="font:400 14px/1 Montserrat,sans-serif;color:#E8E0D2">About the Firm</span>
+          <span style="font:400 14px/1 Montserrat,sans-serif;color:#E8E0D2">Practice Areas</span>
+          <span style="font:400 14px/1 Montserrat,sans-serif;color:#E8E0D2">Our People</span>
+          <span style="font:400 14px/1 Montserrat,sans-serif;color:#E8E0D2">Insights</span>
+          <span style="font:400 14px/1 Montserrat,sans-serif;color:#E8E0D2">Contact</span>
+        </div>
+      </div>
+      <!-- Col 3 -->
+      <div>
+        <div style="font:500 12px/1 Montserrat,sans-serif;color:#C9A35C;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:20px">Get in Touch</div>
+        <div style="display:flex;flex-direction:column;gap:12px;font:400 14px/1.5 Montserrat,sans-serif;color:#E8E0D2">
+          <span>+91 484 XXX XXXX</span>
+          <span>contact@murikanmangot.com</span>
+          <span style="color:#B5AB99;margin-top:4px">Mon – Sat · 9:30 AM – 6:00 PM</span>
+        </div>
+      </div>
+    </div>
+    <div style="height:1px;background:#D9C9A0;opacity:0.2;margin:0 64px"></div>
+    <div style="padding:20px 64px;display:flex;justify-content:space-between;align-items:flex-start;gap:32px">
+      <div style="font:400 11px/1.5 Montserrat,sans-serif;color:#B5AB99;max-width:620px">In keeping with Bar Council of India rules, this site is for information only and is not an advertisement or solicitation.</div>
+      <div style="font:400 11px/1 Montserrat,sans-serif;color:#B5AB99;flex-shrink:0">© 2025 Murikan &amp; Mangot. All rights reserved.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ——— CONTACT FORM ——— -->
+<div style="position:absolute;left:80px;top:4370px;width:520px">
+  <div data-drags-parent="1" style="position:absolute;top:-22px;font:500 11px/1 system-ui,sans-serif;color:rgba(60,50,40,.5)">Contact Form</div>
+  <div style="background:#F4EFE4;border-radius:2px;box-shadow:0 1px 3px rgba(0,0,0,.08);padding:40px">
+    <div style="font:500 12px/1 Montserrat,sans-serif;color:#8A6A2E;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px">Get in Touch</div>
+    <div style="font:500 28px/1.2 'EB Garamond',serif;color:#1E1B19;margin-bottom:32px">Send Us a Message</div>
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <!-- Name -->
+      <div>
+        <div style="font:500 12px/1 Montserrat,sans-serif;color:#3A3531;margin-bottom:8px">Full Name</div>
+        <div style="background:#FFFFFF;border:1px solid #E6DECC;border-radius:2px;padding:12px 16px;font:400 15px/1 Montserrat,sans-serif;color:#B5AB99">Enter your name</div>
+      </div>
+      <!-- Email -->
+      <div>
+        <div style="font:500 12px/1 Montserrat,sans-serif;color:#3A3531;margin-bottom:8px">Email Address</div>
+        <div style="background:#FFFFFF;border:1px solid #E6DECC;border-radius:2px;padding:12px 16px;font:400 15px/1 Montserrat,sans-serif;color:#B5AB99">your@email.com</div>
+      </div>
+      <!-- Phone -->
+      <div>
+        <div style="font:500 12px/1 Montserrat,sans-serif;color:#3A3531;margin-bottom:8px">Phone Number</div>
+        <div style="background:#FFFFFF;border:1px solid #E6DECC;border-radius:2px;padding:12px 16px;font:400 15px/1 Montserrat,sans-serif;color:#B5AB99">+91</div>
+      </div>
+      <!-- Matter Type -->
+      <div>
+        <div style="font:500 12px/1 Montserrat,sans-serif;color:#3A3531;margin-bottom:8px">Matter Type</div>
+        <div style="background:#FFFFFF;border:1px solid #E6DECC;border-radius:2px;padding:12px 16px;display:flex;justify-content:space-between;align-items:center">
+          <span style="font:400 15px/1 Montserrat,sans-serif;color:#B5AB99">Select a practice area</span>
+          <span style="font:400 14px/1 Montserrat,sans-serif;color:#6E665E">▾</span>
+        </div>
+      </div>
+      <!-- Message -->
+      <div>
+        <div style="font:500 12px/1 Montserrat,sans-serif;color:#3A3531;margin-bottom:8px">Message</div>
+        <div style="background:#FFFFFF;border:1px solid #E6DECC;border-radius:2px;padding:12px 16px;min-height:100px;font:400 15px/1.5 Montserrat,sans-serif;color:#B5AB99">Briefly describe your legal matter…</div>
+      </div>
+      <!-- Submit -->
+      <div style="background:#B0894B;padding:14px 32px;border-radius:2px;text-align:center;margin-top:4px"><span style="font:500 14px/1 Montserrat,sans-serif;color:#1E1B19">Send Message</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Form note -->
+<div style="position:absolute;left:660px;top:4400px;background:#fef4a8;padding:12px 14px;font:12px/1.5 system-ui,sans-serif;color:#5a5030;box-shadow:0 1px 3px rgba(0,0,0,.08);max-width:200px;transform:rotate(0.8deg);border-radius:1px">Focus state: border transitions to #B0894B. Error state: border → #C25E3F with message below field.</div>
+
+</x-dc>
+</body>
+</html>

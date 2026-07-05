@@ -1,0 +1,45 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import DisclaimerModal from '../components/DisclaimerModal.astro';
+import { DEFAULT_SCHEMA } from '../data/site';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalUrl: string;
+  ogImage?: string;
+  schema?: Record<string, unknown>;
+  transparentNav?: boolean;
+  preloadHero?: boolean;
+  showDisclaimer?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonicalUrl,
+  ogImage,
+  schema = DEFAULT_SCHEMA,
+  transparentNav = false,
+  preloadHero = false,
+  showDisclaimer = false,
+} = Astro.props;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalUrl={canonicalUrl}
+  ogImage={ogImage}
+  schema={schema}
+  preloadHero={preloadHero}
+>
+  <Nav transparent={transparentNav} />
+  <main id="main-content">
+    <slot />
+  </main>
+  <Footer />
+  {showDisclaimer && <DisclaimerModal />}
+</BaseLayout>

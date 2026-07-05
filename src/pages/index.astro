@@ -1,0 +1,270 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Hero from '../components/Hero.astro';
+import CredibilityStrip from '../components/CredibilityStrip.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import PracticeAreaCard from '../components/PracticeAreaCard.astro';
+import PersonCard from '../components/PersonCard.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { getCollection } from 'astro:content';
+import { contentSlug } from '../utils/content';
+import { SITE } from '../data/site';
+
+const practiceAreas = (await getCollection('practice-areas')).sort(
+  (a, b) => a.data.order - b.data.order
+);
+const people = (await getCollection('people')).sort((a, b) => a.data.order - b.data.order);
+const insights = (await getCollection('insights'))
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+  .slice(0, 3);
+
+const canonicalUrl = new URL('/', Astro.site).href;
+
+const approachItems = [
+  {
+    title: 'High Court Practice',
+    text: 'Our advocates regularly appear before the High Court of Kerala, handling civil appeals, writ petitions, and commercial matters at the highest level in the state.',
+  },
+  {
+    title: 'Local Knowledge',
+    text: "Rooted in Ernakulam's legal community, we bring deep familiarity with Kerala's regulatory landscape, land records, and local administrative processes.",
+  },
+  {
+    title: 'Personal Counsel',
+    text: 'Every matter receives direct attention from experienced advocates. We communicate clearly, set realistic expectations, and keep you informed at each step.',
+  },
+];
+---
+
+<PageLayout
+  title="Home"
+  description="Murikan & Mangot — advocates in Ernakulam, Kochi, Kerala. Trusted counsel in property, corporate, family, and litigation matters."
+  canonicalUrl={canonicalUrl}
+  transparentNav={true}
+  preloadHero={true}
+  showDisclaimer={true}
+>
+  <Hero
+    image="/images/hero/hero"
+    imageAlt="Ernakulam High Court building or Kochi waterfront at golden hour"
+    eyebrow="Advocates & Legal Consultants · Ernakulam"
+    headline="Trusted counsel,<br>rooted in Kerala"
+    subtext="Guiding individuals and businesses through complex legal matters with care, clarity, and discretion."
+    cta1Label="Talk to Us"
+    cta1Href="/contact"
+  />
+
+  <CredibilityStrip />
+
+  <section class="section section--ivory intro">
+    <div class="container intro__grid">
+      <div class="intro__text">
+        <SectionHeading
+          eyebrow="About the Firm"
+          heading="A practice built on understanding"
+        />
+        <div class="prose intro__prose">
+          <p>
+            {SITE.name} is a law firm based in Ernakulam, Kochi, practising before the High Court of Kerala. We bring a measured, personal approach to legal counsel — listening carefully, advising clearly, and working with discretion at every stage.
+          </p>
+          <p>
+            Our practice spans property, corporate, family, and litigation matters. Whether you are an individual navigating a personal legal question or a business managing regulatory complexity, we are here to help you find clarity.
+          </p>
+        </div>
+        <a href="/about" class="text-link intro__link">Learn more about us →</a>
+      </div>
+      <div class="intro__image-wrap">
+        <img
+          src="/images/office/intro.jpg"
+          alt="Firm office interior or Ernakulam courthouse architecture"
+          class="intro__image"
+          width="640"
+          height="420"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--ivory">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Practice Areas"
+        heading="How we can help"
+        align="center"
+      />
+      <div class="grid-4">
+        {practiceAreas.map((area) => (
+          <PracticeAreaCard
+            title={area.data.title}
+            slug={contentSlug(area.id)}
+            icon={area.data.icon}
+            summary={area.data.summary}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--sage approach">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Our Approach"
+        heading="How we work"
+        align="center"
+        variant="sage"
+      />
+      <div class="grid-3 approach__grid">
+        {approachItems.map((item) => (
+          <div class="approach__item">
+            <div class="approach__bar" aria-hidden="true"></div>
+            <h3 class="approach__title">{item.title}</h3>
+            <p class="approach__text">{item.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--ivory section--border-top">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Our People"
+        heading="The team behind the work"
+        align="center"
+      />
+      <div class="grid-4 grid-4--people">
+        {people.map((person) => (
+          <PersonCard
+            name={person.data.name}
+            slug={contentSlug(person.id)}
+            role={person.data.role}
+            photo={person.data.photo}
+            focusAreas={person.data.focusAreas}
+          />
+        ))}
+      </div>
+      <p class="people-cta">
+        <a href="/people" class="text-link">Meet the full team →</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--ivory section--border-top">
+    <div class="container">
+      <div class="insights-header">
+        <SectionHeading
+          eyebrow="Insights"
+          heading="Perspectives on the law"
+        />
+        <a href="/insights" class="text-link insights-header__link hide-mobile">View all insights →</a>
+      </div>
+      <div class="grid-3">
+        {insights.map((article) => (
+          <ArticleCard
+            title={article.data.title}
+            slug={contentSlug(article.id)}
+            category={article.data.category}
+            excerpt={article.data.excerpt}
+            publishDate={article.data.publishDate}
+          />
+        ))}
+      </div>
+      <p class="insights-mobile-cta hide-desktop">
+        <a href="/insights" class="text-link">View all insights →</a>
+      </p>
+    </div>
+  </section>
+
+  <CtaBand />
+</PageLayout>
+
+<style>
+  .intro__grid {
+    display: grid;
+    gap: var(--space-6);
+    align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    .intro__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-8);
+    }
+  }
+
+  .intro__prose {
+    margin-top: var(--space-3);
+  }
+
+  .intro__prose p + p {
+    margin-top: var(--space-2);
+  }
+
+  .intro__link {
+    display: inline-block;
+    margin-top: var(--space-4);
+  }
+
+  .intro__image-wrap {
+    border-radius: var(--radius-card);
+    overflow: hidden;
+  }
+
+  .intro__image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background-color: var(--color-card-border);
+  }
+
+  @media (min-width: 768px) {
+    .intro__image {
+      aspect-ratio: 4 / 3;
+      max-height: 22.5rem;
+    }
+  }
+
+  .approach__bar {
+    width: 2.125rem;
+    height: 2px;
+    background-color: var(--color-gold);
+    margin-bottom: var(--space-3);
+  }
+
+  .approach__title {
+    font-size: 1.3125rem;
+    color: var(--color-ink);
+    margin-bottom: 0.75rem;
+  }
+
+  .approach__text {
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: var(--color-body);
+  }
+
+  .people-cta {
+    text-align: center;
+    margin-top: var(--space-6);
+  }
+
+  .insights-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+  }
+
+  .insights-header :global(.section-heading) {
+    margin-bottom: 0;
+  }
+
+  .insights-mobile-cta {
+    margin-top: var(--space-4);
+    text-align: center;
+  }
+</style>

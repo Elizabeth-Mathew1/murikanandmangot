@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://murikanmangot.in/sitemap-index.xml

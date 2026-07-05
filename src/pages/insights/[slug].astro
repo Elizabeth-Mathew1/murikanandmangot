@@ -1,0 +1,100 @@
+---
+import { getCollection } from 'astro:content';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import PersonCard from '../../components/PersonCard.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { contentSlug } from '../../utils/content';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('insights');
+  return articles.map((article) => ({
+    params: { slug: contentSlug(article.id) },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+const { Content } = await article.render();
+
+const allPeople = await getCollection('people');
+const authorPerson = allPeople.find((p) => p.data.name === article.data.author);
+
+const allInsights = await getCollection('insights');
+const related = allInsights
+  .filter(
+    (i) =>
+      i.id !== article.id && i.data.category === article.data.category
+  )
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+  .slice(0, 3);
+
+const canonicalUrl = new URL(`/insights/${contentSlug(article.id)}`, Astro.site).href;
+---
+
+<ArticleLayout
+  title={article.data.title}
+  description={article.data.excerpt}
+  canonicalUrl={canonicalUrl}
+  author={article.data.author}
+  publishDate={article.data.publishDate}
+  category={article.data.category}
+  ogImage={article.data.ogImage}
+>
+  <Content />
+
+  {authorPerson && (
+    <aside class="article-author">
+      <h2 class="article-author__title">About the author</h2>
+      <PersonCard
+        name={authorPerson.data.name}
+        slug={contentSlug(authorPerson.id)}
+        role={authorPerson.data.role}
+        photo={authorPerson.data.photo}
+        focusAreas={authorPerson.data.focusAreas}
+      />
+    </aside>
+  )}
+
+  {related.length > 0 && (
+    <aside class="article-related">
+      <h2 class="article-related__title">Related articles</h2>
+      <div class="article-related__grid">
+        {related.map((item) => (
+          <ArticleCard
+            title={item.data.title}
+            slug={contentSlug(item.id)}
+            category={item.data.category}
+            excerpt={item.data.excerpt}
+            publishDate={item.data.publishDate}
+          />
+        ))}
+      </div>
+    </aside>
+  )}
+</ArticleLayout>
+
+<style>
+  .article-author,
+  .article-related {
+    margin-top: var(--space-8);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--color-card-border);
+  }
+
+  .article-author__title,
+  .article-related__title {
+    font-size: var(--text-h3);
+    margin-bottom: var(--space-4);
+  }
+
+  .article-related__grid {
+    display: grid;
+    gap: var(--grid-gutter);
+  }
+
+  @media (min-width: 768px) {
+    .article-related__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

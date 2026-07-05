@@ -1,0 +1,37 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import PersonCard from '../../components/PersonCard.astro';
+import { getCollection } from 'astro:content';
+import { contentSlug } from '../../utils/content';
+
+const people = (await getCollection('people')).sort((a, b) => a.data.order - b.data.order);
+const canonicalUrl = new URL('/people', Astro.site).href;
+---
+
+<PageLayout
+  title="People"
+  description="Meet the advocates at Murikan & Mangot — experienced counsel in Ernakulam, Kochi, Kerala."
+  canonicalUrl={canonicalUrl}
+>
+  <section class="section section--ivory">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Our People"
+        heading="The team behind the work"
+        align="center"
+      />
+      <div class="grid-4 grid-4--people">
+        {people.map((person) => (
+          <PersonCard
+            name={person.data.name}
+            slug={contentSlug(person.id)}
+            role={person.data.role}
+            photo={person.data.photo}
+            focusAreas={person.data.focusAreas}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</PageLayout>

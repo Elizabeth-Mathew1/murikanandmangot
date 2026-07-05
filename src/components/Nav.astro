@@ -1,0 +1,242 @@
+---
+import { NAV_LINKS, SITE } from '../data/site';
+
+interface Props {
+  transparent?: boolean;
+}
+
+const { transparent = false } = Astro.props;
+const currentPath = Astro.url.pathname;
+---
+
+<header
+  class:list={['nav', transparent && 'nav--transparent']}
+  data-nav
+>
+  <div class="nav__inner container">
+    <a href="/" class="nav__brand">{SITE.name}</a>
+
+    <button
+      type="button"
+      class="nav__toggle hide-desktop"
+      aria-expanded="false"
+      aria-controls="nav-drawer"
+      data-nav-toggle
+    >
+      <span class="sr-only">Open menu</span>
+      <span class="nav__hamburger" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+
+    <nav class="nav__links hide-mobile" aria-label="Main">
+      {NAV_LINKS.map((link) => (
+        <a
+          href={link.href}
+          class:list={['nav__link', currentPath.startsWith(link.href) && link.href !== '/' && 'nav__link--active']}
+        >
+          {link.label}
+        </a>
+      ))}
+      <a href="/contact" class="btn btn--primary nav__cta hide-mobile">Talk to Us</a>
+    </nav>
+  </div>
+
+  <div class="nav__drawer hide-desktop" id="nav-drawer" data-nav-drawer hidden>
+    <nav class="nav__drawer-inner" aria-label="Mobile">
+      {NAV_LINKS.map((link) => (
+        <a href={link.href} class="nav__drawer-link">{link.label}</a>
+      ))}
+      <a href="/contact" class="btn btn--primary nav__drawer-cta">Talk to Us</a>
+    </nav>
+  </div>
+</header>
+
+{transparent && <div class="nav-sentinel" data-nav-sentinel aria-hidden="true"></div>}
+
+<script>
+  const nav = document.querySelector('[data-nav]');
+  const toggle = document.querySelector('[data-nav-toggle]');
+  const drawer = document.querySelector('[data-nav-drawer]');
+  const sentinel = document.querySelector('[data-nav-sentinel]');
+
+  if (nav && toggle && drawer) {
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      drawer.hidden = open;
+      document.body.classList.toggle('nav-open', !open);
+    });
+
+    drawer.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        toggle.setAttribute('aria-expanded', 'false');
+        drawer.hidden = true;
+        document.body.classList.remove('nav-open');
+      });
+    });
+  }
+
+  if (nav && sentinel && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        nav.classList.toggle('nav--scrolled', !entry.isIntersecting);
+      },
+      { threshold: 0 }
+    );
+    observer.observe(sentinel);
+  } else if (nav) {
+    nav.classList.add('nav--scrolled');
+  }
+</script>
+
+<style>
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--color-ivory);
+    border-bottom: 1px solid var(--color-card-border);
+    transition:
+      background-color var(--transition-fast),
+      border-color var(--transition-fast);
+  }
+
+  .nav--transparent {
+    position: fixed;
+    left: 0;
+    right: 0;
+    background-color: transparent;
+    border-bottom-color: transparent;
+  }
+
+  .nav--transparent.nav--scrolled {
+    background-color: var(--color-card-bg);
+    border-bottom-color: var(--color-card-border);
+  }
+
+  .nav__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: var(--nav-height);
+    padding-block: var(--space-2);
+  }
+
+  .nav--transparent .nav__inner {
+    min-height: var(--nav-height);
+  }
+
+  .nav__brand {
+    font-family: var(--font-heading);
+    font-size: 1.375rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: var(--color-ink);
+  }
+
+  .nav--transparent:not(.nav--scrolled) .nav__brand {
+    color: var(--color-ivory);
+  }
+
+  .nav__links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .nav__link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-body);
+    transition: color var(--transition-fast);
+  }
+
+  .nav--transparent:not(.nav--scrolled) .nav__link {
+    color: var(--color-text-on-dark);
+  }
+
+  .nav__link:hover,
+  .nav__link:focus-visible {
+    color: var(--color-gold);
+  }
+
+  .nav--transparent:not(.nav--scrolled) .nav__link:hover,
+  .nav--transparent:not(.nav--scrolled) .nav__link:focus-visible {
+    color: var(--color-gold-light);
+  }
+
+  .nav__cta {
+    padding: 0.625rem 1.5rem;
+  }
+
+  .nav__toggle {
+    background: none;
+    border: none;
+    padding: var(--space-1);
+    cursor: pointer;
+  }
+
+  .nav__hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .nav__hamburger span {
+    display: block;
+    width: 20px;
+    height: 1.5px;
+    background-color: var(--color-ink);
+    transition: background-color var(--transition-fast);
+  }
+
+  .nav--transparent:not(.nav--scrolled) .nav__hamburger span {
+    background-color: var(--color-text-on-dark);
+  }
+
+  .nav__drawer {
+    position: fixed;
+    inset: var(--nav-height-mobile) 0 0 0;
+    background-color: var(--color-ivory);
+    border-top: 1px solid var(--color-card-border);
+    padding: var(--space-4);
+    overflow-y: auto;
+    z-index: 99;
+  }
+
+  .nav__drawer-inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .nav__drawer-link {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-body);
+    padding-block: var(--space-1);
+  }
+
+  .nav__drawer-cta {
+    margin-top: var(--space-2);
+    align-self: flex-start;
+  }
+
+  .nav-sentinel {
+    height: 1px;
+    pointer-events: none;
+  }
+
+  :global(body.nav-open) {
+    overflow: hidden;
+  }
+
+  @media (max-width: 767px) {
+    .nav__inner {
+      min-height: var(--nav-height-mobile);
+    }
+  }
+</style>

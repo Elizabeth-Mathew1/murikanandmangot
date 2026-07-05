@@ -1,0 +1,286 @@
+---
+import { SITE } from '../data/site';
+---
+
+<div class="disclaimer" data-disclaimer role="dialog" aria-modal="true" aria-labelledby="disclaimer-title">
+  <div class="disclaimer__backdrop" data-disclaimer-close></div>
+  <div class="disclaimer__panel">
+    <div class="disclaimer__accent" aria-hidden="true"></div>
+    <div class="disclaimer__content">
+      <div class="disclaimer__handle" aria-hidden="true"></div>
+      <p class="disclaimer__brand">{SITE.name}</p>
+      <p class="disclaimer__tagline">{SITE.tagline}</p>
+      <div class="gold-bar gold-bar--center"></div>
+      <h2 id="disclaimer-title" class="disclaimer__title">Disclaimer</h2>
+      <p class="disclaimer__intro disclaimer__intro--desktop">
+        As per the rules of the Bar Council of India, advocates are not permitted to solicit work or advertise. By clicking "I Agree" below, you acknowledge that:
+      </p>
+      <p class="disclaimer__intro disclaimer__intro--mobile">
+        As per the rules of the Bar Council of India, advocates are not permitted to solicit work or advertise. By clicking "I Agree" below, you acknowledge that:
+      </p>
+      <ul class="disclaimer__list disclaimer__list--desktop">
+        <li>There has been no advertisement, personal communication, solicitation, invitation, or inducement of any sort whatsoever from us or any of our members to solicit any work through this website.</li>
+        <li>You wish to gain more information about us for your own information and use.</li>
+        <li>The information about us is provided to you on your specific request and any information obtained or materials downloaded from this website are completely at your own volition.</li>
+      </ul>
+      <ul class="disclaimer__list disclaimer__list--mobile">
+        <li>There has been no solicitation, invitation, or inducement of any sort from us to solicit work through this website.</li>
+        <li>You wish to gain more information about us for your own use.</li>
+        <li>Any information obtained from this website is at your own volition and does not constitute legal advice.</li>
+      </ul>
+      <p class="disclaimer__note">
+        The information provided on this website does not constitute legal advice and should not be construed as a solicitation or form of attorney-client relationship.
+      </p>
+      <div class="disclaimer__actions">
+        <button type="button" class="btn btn--primary" data-disclaimer-accept>I Agree</button>
+        <button type="button" class="btn btn--secondary-light disclaimer__decline" data-disclaimer-decline>I Disagree</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const modal = document.querySelector('[data-disclaimer]');
+  const acceptBtn = document.querySelector('[data-disclaimer-accept]');
+  const declineBtn = document.querySelector('[data-disclaimer-decline]');
+
+  if (modal) {
+    document.body.style.overflow = 'hidden';
+  }
+
+  acceptBtn?.addEventListener('click', () => {
+    if (modal) {
+      modal.hidden = true;
+      modal.setAttribute('aria-hidden', 'true');
+    }
+    document.body.style.overflow = '';
+  });
+
+  declineBtn?.addEventListener('click', () => {
+    window.location.href = 'https://www.google.com';
+  });
+</script>
+
+<style>
+  .disclaimer[hidden] {
+    display: none !important;
+  }
+
+  .disclaimer {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-3);
+  }
+
+  .disclaimer__backdrop {
+    position: absolute;
+    inset: 0;
+    background-color: color-mix(in srgb, var(--color-ink) 75%, transparent);
+  }
+
+  .disclaimer__panel {
+    position: relative;
+    width: 100%;
+    max-width: 36.25rem;
+    background-color: var(--color-card-bg);
+    border-radius: var(--radius-modal);
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .disclaimer__accent {
+    height: 3px;
+    background-color: var(--color-gold);
+  }
+
+  .disclaimer__content {
+    padding: var(--space-4) clamp(1.5rem, 4vw, 2.75rem) var(--space-4);
+  }
+
+  .disclaimer__brand {
+    font-family: var(--font-heading);
+    font-size: 1.375rem;
+    font-weight: 500;
+    text-align: center;
+    color: var(--color-ink);
+  }
+
+  .disclaimer__tagline {
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--color-gold);
+    margin-top: 0.375rem;
+  }
+
+  .disclaimer__content .gold-bar {
+    margin-block: var(--space-3);
+  }
+
+  .disclaimer__title {
+    font-size: 1.625rem;
+    text-align: center;
+  }
+
+  .disclaimer__intro,
+  .disclaimer__note {
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: var(--color-body);
+    margin-top: var(--space-3);
+  }
+
+  .disclaimer__list {
+    margin-top: var(--space-2);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .disclaimer__list li {
+    display: flex;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: var(--color-body);
+    list-style: none;
+  }
+
+  .disclaimer__list li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    margin-top: 0.5rem;
+    background-color: var(--color-gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .disclaimer__note {
+    font-size: 0.8125rem;
+    color: var(--color-muted);
+  }
+
+  .disclaimer__actions {
+    display: flex;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+  }
+
+  .disclaimer__actions .btn {
+    flex: 1;
+  }
+
+  .disclaimer__decline {
+    color: var(--color-muted);
+    border-color: var(--color-card-border);
+  }
+
+  .disclaimer__intro--mobile,
+  .disclaimer__list--mobile {
+    display: none;
+  }
+
+  .disclaimer__handle {
+    display: none;
+  }
+
+  @media (max-width: 767px) {
+    .disclaimer {
+      align-items: flex-end;
+      padding: 0;
+    }
+
+    .disclaimer__panel {
+      border-radius: 12px 12px 0 0;
+      max-height: none;
+      overflow: visible;
+    }
+
+    .disclaimer__handle {
+      display: block;
+      width: 2.25rem;
+      height: 4px;
+      margin: 0.75rem auto 0;
+      background-color: var(--color-card-border);
+      border-radius: 2px;
+    }
+
+    .disclaimer__content {
+      padding: 0.5rem 1.5rem 2rem;
+    }
+
+    .disclaimer__brand {
+      font-size: 1.1875rem;
+    }
+
+    .disclaimer__tagline {
+      font-size: 0.625rem;
+      margin-top: 0.3125rem;
+    }
+
+    .disclaimer__content .gold-bar {
+      margin-block: 1.125rem;
+    }
+
+    .disclaimer__title {
+      font-size: 1.375rem;
+    }
+
+    .disclaimer__intro--desktop,
+    .disclaimer__list--desktop,
+    .disclaimer__note {
+      display: none;
+    }
+
+    .disclaimer__intro--mobile,
+    .disclaimer__list--mobile {
+      display: flex;
+    }
+
+    .disclaimer__intro--mobile {
+      display: block;
+      font-size: 0.8125rem;
+      line-height: 1.65;
+      margin-top: 1rem;
+    }
+
+    .disclaimer__list--mobile {
+      margin-top: 0.875rem;
+      gap: 0.625rem;
+    }
+
+    .disclaimer__list--mobile li {
+      font-size: 0.8125rem;
+      line-height: 1.65;
+      gap: 0.625rem;
+    }
+
+    .disclaimer__list--mobile li::before {
+      width: 5px;
+      height: 5px;
+      margin-top: 0.375rem;
+    }
+
+    .disclaimer__actions {
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 1.25rem;
+    }
+
+    .disclaimer__actions .btn {
+      flex: none;
+      width: 100%;
+      padding: 0.6875rem 1.5rem;
+      font-size: 0.8125rem;
+    }
+  }
+</style>

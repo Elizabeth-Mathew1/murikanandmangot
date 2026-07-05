@@ -1,0 +1,145 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { SITE } from '../data/site';
+
+const canonicalUrl = new URL('/contact', Astro.site).href;
+const mapQuery = encodeURIComponent(`${SITE.address.line2}, ${SITE.address.region}`);
+---
+
+<PageLayout
+  title="Contact"
+  description={`Contact ${SITE.name} in Ernakulam, Kochi. Reach us by phone, email, or the form below.`}
+  canonicalUrl={canonicalUrl}
+>
+  <section class="section section--ivory">
+    <div class="container contact">
+      <SectionHeading eyebrow="Contact" heading="Get in touch" align="center" />
+
+      <div class="contact__grid">
+        <div class="contact__form-wrap">
+          <ContactForm />
+        </div>
+
+        <aside class="contact__info">
+          <h2 class="contact__info-title">Visit or call</h2>
+          <address class="contact__address">
+            <strong>{SITE.name}</strong><br />
+            {SITE.tagline}<br />
+            {SITE.address.line1}<br />
+            {SITE.address.line2}<br />
+            {SITE.address.region}
+          </address>
+
+          <ul class="contact__details">
+            <li>
+              <span class="contact__label">Phone</span>
+              <a href={`tel:${SITE.phone.replace(/\s/g, '')}`}>{SITE.phone}</a>
+            </li>
+            <li>
+              <span class="contact__label">Email</span>
+              <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+            </li>
+            <li>
+              <span class="contact__label">Hours</span>
+              <span>{SITE.hours}</span>
+            </li>
+          </ul>
+
+          <div class="contact__map">
+            <iframe
+              title="Office location map"
+              src={`https://maps.google.com/maps?q=${mapQuery}&output=embed`}
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</PageLayout>
+
+<style>
+  .contact__grid {
+    display: grid;
+    gap: var(--space-8);
+    margin-top: var(--space-6);
+  }
+
+  @media (min-width: 768px) {
+    .contact__grid {
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
+  }
+
+  .contact__form-wrap {
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-card-border);
+    border-radius: var(--radius-card);
+    padding: var(--space-4);
+  }
+
+  .contact__info-title {
+    font-size: var(--text-h3);
+    margin-bottom: var(--space-3);
+  }
+
+  .contact__address {
+    font-style: normal;
+    font-size: var(--text-body);
+    line-height: var(--leading-prose);
+    color: var(--color-body);
+    margin-bottom: var(--space-4);
+  }
+
+  .contact__details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+  }
+
+  .contact__details li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .contact__label {
+    font-size: var(--text-eyebrow);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-gold-deep);
+  }
+
+  .contact__details a {
+    color: var(--color-body);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .contact__map {
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    border: 1px solid var(--color-card-border);
+    aspect-ratio: 16 / 10;
+  }
+
+  @media (min-width: 768px) {
+    .contact__map {
+      aspect-ratio: 4 / 3;
+      max-height: 18rem;
+    }
+  }
+
+  .contact__map iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+</style>

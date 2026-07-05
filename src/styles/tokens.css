@@ -1,0 +1,79 @@
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/eb-garamond-v27-latin-500.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/montserrat-v26-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/montserrat-v26-latin-500.woff2') format('woff2');
+}
+
+:root {
+  /* Colour — Mother Mary palette */
+  --color-ink: #1E2D3A;
+  --color-hero-overlay: #263A48;
+  --color-gold: #3D6E64;
+  --color-gold-light: #5E9E92;
+  --color-gold-deep: #2D5A50;
+  --color-ivory: #F0F5F3;
+  --color-sage: #B8CCC7;
+  --color-body: #374D5A;
+  --color-muted: #6B7E86;
+  --color-card-bg: #FFFFFF;
+  --color-card-border: #CDDAD6;
+  --color-gold-hairline: #A3C4BD;
+  --color-text-on-dark: #D0DCD8;
+  --color-muted-on-dark: #8A9DA6;
+  --color-error: #C25E3F;
+
+  /* Typography */
+  --font-heading: 'EB Garamond', Georgia, serif;
+  --font-body: 'Montserrat', system-ui, sans-serif;
+  --text-hero: clamp(2.25rem, 5vw, 3.5rem);
+  --text-h2: clamp(1.75rem, 3vw, 2.125rem);
+  --text-h3: 1.25rem;
+  --text-body: 1rem;
+  --text-caption: 0.8125rem;
+  --text-eyebrow: 0.75rem;
+  --text-link: 0.9375rem;
+  --leading-tight: 1.2;
+  --leading-hero: 1.15;
+  --leading-body: 1.6;
+  --leading-prose: 1.7;
+
+  /* Spacing (8px scale) */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-6: 3rem;
+  --space-8: 4rem;
+  --space-12: 6rem;
+  --section-padding: clamp(3.5rem, 8vw, 6rem);
+  --container-padding: clamp(1.5rem, 5vw, 5rem);
+  --grid-gutter: 1.5rem;
+
+  /* Misc */
+  --radius-card: 3px;
+  --radius-button: 2px;
+  --radius-modal: 4px;
+  --max-width: 1280px;
+  --prose-width: 45rem;
+  --nav-height: 5rem;
+  --nav-height-mobile: 4rem;
+  --transition-fast: 200ms ease;
+}

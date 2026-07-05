@@ -1,0 +1,150 @@
+---
+import { SITE, FOOTER_LINKS } from '../data/site';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="footer__main container">
+    <div class="footer__col">
+      <p class="footer__brand">{SITE.name}</p>
+      <p class="footer__address">
+        {SITE.tagline}<br />
+        {SITE.address.line1}<br />
+        {SITE.address.line2}<br />
+        {SITE.address.region}
+      </p>
+    </div>
+    <div class="footer__col">
+      <p class="footer__heading">Quick Links</p>
+      <ul class="footer__links">
+        {FOOTER_LINKS.map((link) => (
+          <li>
+            <a href={link.href} class="footer__link">{link.label}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div class="footer__col">
+      <p class="footer__heading">Get in Touch</p>
+      <ul class="footer__contact">
+        <li><a href={`tel:${SITE.phone.replace(/\s/g, '')}`}>{SITE.phone}</a></li>
+        <li><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
+        <li class="footer__hours">{SITE.hours}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer__rule container"></div>
+  <div class="footer__bottom container">
+    <p class="footer__disclaimer">{SITE.bciDisclaimer}</p>
+    <p class="footer__copy">© {year} {SITE.name}. All rights reserved.</p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: var(--color-ink);
+    color: var(--color-text-on-dark);
+  }
+
+  .footer__main {
+    display: grid;
+    gap: var(--space-6);
+    padding-block: var(--space-8);
+  }
+
+  @media (min-width: 768px) {
+    .footer__main {
+      grid-template-columns: 1.3fr 0.8fr 1fr;
+      gap: var(--space-6);
+      padding-inline: clamp(2rem, 5vw, 4rem);
+    }
+  }
+
+  .footer__brand {
+    font-family: var(--font-heading);
+    font-size: 1.375rem;
+    font-weight: 500;
+    color: var(--color-ivory);
+    margin-bottom: var(--space-2);
+  }
+
+  .footer__address {
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: var(--color-muted-on-dark);
+  }
+
+  .footer__heading {
+    font-size: var(--text-eyebrow);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-gold-light);
+    margin-bottom: var(--space-3);
+  }
+
+  .footer__links,
+  .footer__contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .footer__link,
+  .footer__contact a {
+    font-size: 0.875rem;
+    color: var(--color-text-on-dark);
+    transition: color var(--transition-fast);
+  }
+
+  .footer__link:hover,
+  .footer__contact a:hover,
+  .footer__link:focus-visible,
+  .footer__contact a:focus-visible {
+    color: var(--color-gold-light);
+  }
+
+  .footer__hours {
+    font-size: 0.875rem;
+    color: var(--color-muted-on-dark);
+    margin-top: var(--space-1);
+  }
+
+  .footer__rule {
+    height: 1px;
+    background-color: var(--color-gold-hairline);
+    opacity: 0.2;
+    max-width: calc(var(--max-width) + 8rem);
+  }
+
+  .footer__bottom {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding-block: var(--space-3);
+    padding-inline: clamp(1.5rem, 5vw, 4rem);
+  }
+
+  @media (min-width: 768px) {
+    .footer__bottom {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: var(--space-4);
+    }
+  }
+
+  .footer__disclaimer {
+    font-size: 0.6875rem;
+    line-height: 1.5;
+    color: var(--color-muted-on-dark);
+    max-width: 38.75rem;
+  }
+
+  .footer__copy {
+    font-size: 0.6875rem;
+    color: var(--color-muted-on-dark);
+    flex-shrink: 0;
+  }
+</style>

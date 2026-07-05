@@ -1,0 +1,116 @@
+---
+interface Props {
+  title: string;
+  slug: string;
+  icon: string;
+  summary: string;
+}
+
+const { title, slug, icon, summary } = Astro.props;
+---
+
+<article class="practice-card">
+  <div class="practice-card__icon" aria-hidden="true">
+    {icon === 'home' && (
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1v-9.5z" />
+      </svg>
+    )}
+    {icon === 'briefcase' && (
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="3" y="8" width="18" height="12" rx="1" />
+        <path d="M9 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18" />
+      </svg>
+    )}
+    {icon === 'users' && (
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="9" cy="8" r="3" />
+        <path d="M3 20c0-3 2.7-5 6-5s6 2 6 5M16 8a3 3 0 1 1 0 6M19 20c0-2.2-1.8-4-3.5-4.5" />
+      </svg>
+    )}
+    {icon === 'scale' && (
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M12 3v18M5 7h14M7 7l-3 6h6L7 7zm10 0-3 6h6l-3-6z" />
+      </svg>
+    )}
+  </div>
+  <h3 class="practice-card__title">
+    <a href={`/practice-areas/${slug}`}>{title}</a>
+  </h3>
+  <p class="practice-card__summary">{summary}</p>
+  <a href={`/practice-areas/${slug}`} class="text-link practice-card__link">Learn more →</a>
+</article>
+
+<style>
+  .practice-card {
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-card-border);
+    border-radius: var(--radius-card);
+    padding: var(--space-4);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: border-color var(--transition-fast);
+  }
+
+  .practice-card:hover {
+    border-color: var(--color-gold-hairline);
+  }
+
+  .practice-card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 1.5px solid var(--color-gold-hairline);
+    border-radius: 50%;
+    color: var(--color-gold-light);
+    margin-bottom: var(--space-3);
+  }
+
+  .practice-card__title {
+    font-size: var(--text-h3);
+    margin-bottom: 0.625rem;
+  }
+
+  .practice-card__title a {
+    color: inherit;
+  }
+
+  .practice-card__title a:hover,
+  .practice-card__title a:focus-visible {
+    color: var(--color-gold-deep);
+  }
+
+  .practice-card__summary {
+    font-size: 0.9375rem;
+    line-height: var(--leading-body);
+    color: var(--color-body);
+    flex: 1;
+  }
+
+  .practice-card__link {
+    margin-top: var(--space-3);
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 767px) {
+    .practice-card {
+      padding: var(--space-3);
+    }
+
+    .practice-card__icon {
+      width: 2.25rem;
+      height: 2.25rem;
+      margin-bottom: 0;
+    }
+
+    .practice-card__header-mobile {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-bottom: 0.75rem;
+    }
+  }
+</style>

@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <meta name="design_doc_mode" content="canvas">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+</helmet>
+
+<!-- ═══════════ HOME — DESKTOP 1440px ═══════════ -->
+<div style="position:absolute;left:80px;top:80px;width:1440px">
+  <div data-drags-parent="1" style="position:absolute;top:-30px;font:500 12px/1 system-ui,sans-serif;color:rgba(60,50,40,.6)">Home — Desktop · 1440px</div>
+  <div style="background:#F4EFE4;box-shadow:0 2px 20px rgba(0,0,0,.1);overflow:hidden">
+
+    <!-- ——— 1. HERO ——— -->
+    <div data-screen-label="Hero" style="position:relative;height:640px;overflow:hidden">
+      <!-- Placeholder image bg -->
+      <div style="position:absolute;inset:0;background-color:#3A3531;background-image:repeating-linear-gradient(45deg,transparent,transparent 8px,rgba(255,255,255,.025) 8px,rgba(255,255,255,.025) 16px)"></div>
+      <div style="position:absolute;right:24px;bottom:16px;font:10px/1 'Courier New',monospace;color:rgba(255,255,255,.18);z-index:3">PHOTO: Ernakulam High Court building or Kochi waterfront at golden hour</div>
+      <!-- Scrim -->
+      <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(30,27,25,.8) 0%,rgba(30,27,25,.58) 50%,rgba(30,27,25,.2) 100%)"></div>
+      <!-- Nav -->
+      <div style="position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:80px">
+        <div style="font:500 22px/1 'EB Garamond',serif;color:#F4EFE4;letter-spacing:0.01em">Murikan &amp; Mangot</div>
+        <div style="display:flex;align-items:center;gap:32px">
+          <span style="font:500 14px/1 Montserrat,sans-serif;color:#E8E0D2">About</span>
+          <span style="font:500 14px/1 Montserrat,sans-serif;color:#E8E0D2">Practice Areas</span>
+          <span style="font:500 14px/1 Montserrat,sans-serif;color:#E8E0D2">People</span>
+          <span style="font:500 14px/1 Montserrat,sans-serif;color:#E8E0D2">Insights</span>
+          <span style="font:500 14px/1 Montserrat,sans-serif;color:#E8E0D2">Contact</span>
+          <div style="border:1px solid #C9A35C;padding:10px 24px;border-radius:2px;margin-left:8px">
+            <span style="font:500 13px/1 Montserrat,sans-serif;color:#C9A35C;letter-spacing:0.02em">Talk to Us</span>
+          </div>
+        </div>
+      </div>
+      <!-- Hero content -->
+      <div style="position:relative;z-index:1;display:flex;flex-direction:column;justify-content:center;padding:0 80px;height:calc(100% - 80px)">
+        <div style="font:500 12px/1 Montserrat,sans-serif;color:#C9A35C;letter-spacing:0.08em;text-transform:uppercase">Advocates &amp; Legal Consultants · Ernakulam</div>
+        <div style="font:500 58px/1.1 'EB Garamond',serif;color:#FFFFFF;margin-top:24px;max-width:720px">Trusted counsel,<br>rooted in Kerala</div>
+        <div style="font:400 17px/1.6 Montserrat,sans-serif;color:#E8E0D2;margin-top:20px;max-width:540px">Guiding individuals and businesses through complex legal matters with care, clarity, and discretion.</div>
+        <div style="margin-top:36px">
+          <div style="background:#B0894B;padding:14px 32px;border-radius:2px;display:inline-block"><span style="font:500 14px/1 Montserrat,sans-serif;color:#1E1B19">Talk to Us</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ——— 2. CREDIBILITY STRIP ——— -->
+    <div data-screen-label="Credibility Strip" style="background:#1E1B19;display:flex;align-items:center;justify-content:center;gap:56px;padding:24px 48px">
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="width:28px;height:28px;border:1.5px solid #C9A35C;border-radius:50%;display:flex;align-items:center;justify-content:center"><div style="width:10px;height:10px;background:#C9A35C;border-radius:50%"></div></div>
+        <span style="font:500 13px/1.3 Montserrat,sans-serif;color:#E8E0D2">Practising before the<br>High Court of Kerala</span>
+      </div>
+      <div style="width:1px;height:32px;background:#D9C9A0;opacity:0.25"></div>
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="width:28px;height:28px;border:1.5px solid #C9A35C;border-radius:50%;display:flex;align-items:center;justify-content:center"><div style="width:10px;height:10px;background:#C9A35C;border-radius:50%"></div></div>
+        <span style="font:500 13px/1.3 Montserrat,sans-serif;color:#E8E0D2">Established in<br>Ernakulam</span>
+      </div>
+      <div style="width:1px;height:32px;background:#D9C9A0;opacity:0.25"></div>
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="width:28px;height:28px;border:1.5px solid #C9A35C;border-radius:50%;display:flex;align-items:center;justify-content:center"><div style="width:10px;height:10px;background:#C9A35C;border-radius:50%"></div></div>
+        <span style="font:500 13px/1.3 Montserrat,sans-serif;color:#E8E0D2">Ernakulam,<br>Kochi, Kerala</span>
+      </div>
+    </div>
+
+    <!-- ——— 3. POSITIONING INTRO ——— -->
+    <div data-screen-label="Introduction" style="padding:96px 80px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;max-width:1280px;margin:0 auto">
+        <!-- Text -->
+        <div>
+          <div style="font:500 12px/1 Montserrat,sans-serif;color:#8A6A2E;letter-spacing:0.08em;text-transform:uppercase">About the Firm</div>
+          <div style="font:500 36px/1.2 'EB Garamond',serif;color:#1E1B19;margin-top:14px">A practice built on understanding</div>
+          <div style="width:34px;height:2px;background:#D9C9A0;margin-top:20px"></div>
+          <div style="font:400 16px/1.7 Montserrat,sans-serif;color:#3A3531;margin-top:24px">Murikan &amp; Mangot is a law firm based in Ernakulam, Kochi, practising before the High Court of Kerala. We bring a measured, personal approach to legal counsel — listening carefully, advising clearly, and working with discretion at every stage.</div>
+          <div style="font:400 16px/1.7 Montserrat,sans-serif;color:#3A3531;margin-top:16px">Our practice spans property, corporate, family, and litigation matters. Whether you are an individual navigating a personal legal question or a business managing regulatory complexity, we are here to help you find clarity.</div>
+          <div style="margin-top:28px"><span style="font:500 15px/1 Montserrat,sans-serif;color:#8A6A2E">Learn more about us →</span></div>
+        </div>
+        <!-- Image placeholder -->
+        <div style="height:420px;background-color:#E6DECC;background-image:repeating-linear-gradient(45deg,transparent,transparent 6px,rgba(185,169,137,.12) 6px,rgba(185,169,137,.12) 12px);display:flex;align-items:center;justify-content:center;border-radius:3px">
+          <span style="font:11px/1.5 'Courier New',monospace;color:#8A6A2E;text-align:center;opacity:0.7;padding:16px">PHOTO<br>Firm's office interior, or<br>Ernakulam courthouse / Kochi<br>architecture — warm, natural</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ——— 4. PRACTICE AREAS GRID ——— -->
+    <div data-screen-label="Practice Areas" style="padding:96px 80px;background:#F4EFE4">
+      <div style="max-width:1280px;margin:0 auto">
+        <!-- Section heading -->
+        <div style="text-align:center;margin-bottom:56px">
+          <div style="font:500 12px/1 Montserrat,sans-serif;color:#8A6A2E;letter-spacing:0.08em;text-transform:uppercase">Practice Areas</div>
+          <div style="font:500 36px/1.2 'EB Garamond',serif;color:#1E1B19;margin-top:14px">How we can help</div>
+          <div style="width:34px;height:2px;background:#D9C9A0;margin:20px auto 0"></div>
+        </div>
+        <!-- Cards -->
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px">
+          <!-- Property & Land -->
+          <div style="background:#FFFFFF;border:1px solid #E6DECC;border-radius:3px;padding:32px">
+            <div style="width:44px;height:44px;border:1.5px solid #D9C9A0;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:20px"><div style="width:14px;height:14px;border:1.5px solid #C9A35C;border-radius:2px"></div></div>
+            <div style="font:500 20px/1.3 'EB Garamond',serif;color:#1E1B19">Property &amp; Land</div>
+            <div style="font:400 15px/1.6 Montserrat,sans-serif;color:#3A3531;margin-top:10px">Navigating property transactions, title disputes, and land acquisition with thorough local knowledge.</div>
+            <div style="margin-top:20px"><span style="font:500 14px/1 Montserrat,sans-serif;color:#8A6A2E">Learn more →</span></div>
+          </div>
+          <!-- Corporate & Commercial -->
+          <div style="background:#FFFFFF;border:1px solid #E6DECC;border-radius:3px;padding:32px">
+            <div style="width:44px;height:44px;border:1.5px solid #D9C9A0;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:20px"><div style="width:14px;height:14px;border:1.5px solid #C9A35C;border-radius:50%"></div></div>
+            <div style="font:500 20px/1.3 'EB Garamond',serif;color:#1E1B19">Corporate &amp; Commercial</div>
+            <div style="font:400 15px/1.6 Montserrat,sans-serif;color:#3A3531;margin-top:10px">Supporting businesses with formation, governance, contracts, and regulatory compliance.</div>
+            <div style="margin-top:20px"><span style="font:500 14px/1 Montserrat,sans-serif;color:#8A6A2E">Learn more →</span></div>
+          </div>
+          <!-- Family & Succession -->
+          <div style="background:#FFFFFF;border:1px solid #E6DECC;border-radius:3px;padding:32px">
+            <div style="width:44px;height:44px;border:1.5px solid #D9C9A0;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:20px"><div style="width:14px;height:14px;border:1.5px solid #C9A35C;transform:rotate(45deg)"></div></div>
+            <div style="font:500 20px/1.3 'EB Garamond',serif;color:#1E1B19">Family &amp; Succession</div>
+            <div style="font:400 15px/1.6 Montserrat,sans-serif;color:#3A3531;margin-top:10px">Handling family matters, inheritance, and succession planning with sensitivity and care.</div>
+            <div style="margin-top:20px"><span style="font:500 14px/1 Montserrat,sans-serif;color:#8A6A2E">Learn more →</span></div>
+          </div>
+          <!-- Disputes & Litigation -->
+          <div style="background:#FFFFFF;border:1px solid #E6DECC;border-radius:3px;padding:32px">
+            <div style="width:44px;height:44px;border:1.5px solid #D9C9A0;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:20px"><div style="width:14px;height:14px;border:1.5px solid #C9A35C;border-radius:1px"></div></div>
+            <div style="font:500 20px/1.3 'EB Garamond',serif;color:#1E1B19">Disputes &amp; Litigation</div>
+            <div style="font:400 15px/1.6 Montserrat,sans-serif;color:#3A3531;margin-top:10px">Representing clients in civil and commercial disputes before courts and tribunals across Kerala.</div>
+            <div style="margin-top:20px"><span style="font:500 14px/1 Montserrat,sans-serif;color:#8A6A2E">Learn more →</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ——— 5. APPROACH / WHY US ——— -->
+    <div data-screen-label="Our Approach" style="padding:96px 80px;background:#1E1B19">
+      <div style="max-width:1280px;margin:0 auto">
+        <div style="text-align:center;margin-bottom:56px">
+          <div style="font:500 12px/1 Montserrat,sans-serif;color:#C9A35C;letter-spacing:0.08em;text-transform:uppercase">Our Approach</div>
+          <div style="font:500 36px/1.2 'EB Garamond',serif;color:#F4EFE4;margin-top:14px">How we work</div>
+          <div style="width:34px;height:2px;background:#D9C9A0;margin:20px auto 0"></div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:48px">
+          <!-- Credential 1 -->
+          <div>
+            <div style="width:34px;height:2px;background:#C9A35C;margin-bottom:24px"></div>
+            <div style="font:500 21px/1.3 'EB Garamond',serif;color:#F4EFE4">High Court Practice</div>
+            <div style="font:400 15px/1.65 Montserrat,sans-serif;color:#B5AB99;margin-top:12px">Our advocates regularly appear before the High Court of Kerala, handling civil appeals, writ petitions, and commercial matters at the highest level in the state.</div>
+          </div>
+          <!-- Credential 2 -->
+          <div>
+            <div style="width:34px;height:2px;background:#C9A35C;margin-bottom:24px"></div>
+            <div style="font:500 21px/1.3 'EB Garamond',serif;color:#F4EFE4">Local Knowledge</div>
+            <div style="font:400 15px/1.65 Montserrat,sans-serif;color:#B5AB99;margin-top:12px">Rooted in Ernakulam's legal community, we bring deep familiarity with Kerala's regulatory landscape, land records, and local administrative processes.</div>
+          </div>
+          <!-- Credential 3 -->
+          <div>
+            <div style="width:34px;height:2px;background:#C9A35C;margin-bottom:24px"></div>
+            <div style="font:500 21px/1.3 'EB Garamond',serif;color:#F4EFE4">Personal Counsel</div>
+            <div style="font:400 15px/1.65 Montserrat,sans-serif;color:#B5AB99;margin-top:12px">Every matter receives direct attention from experienced advocates. We communicate clearly, set realistic expectations, and keep you informed at each step.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ——— 6. FEATURED PEOPLE ——— -->
+    <div data-screen-label="Our People" style="padding:96px 80px;border-top:1px solid #E6DECC">
+      <div style="max-width:1280px;margin:0 auto">
+        <div style="text-align:center;margin-bottom:56px">
+          <div style="font:500 12px/1 Montserrat,sans-serif;color:#8A6A2E;letter-spacing:0.08em;text-transform:uppercase">Our People</div>
+          <div style="font:500 36px/1.2 'EB Garamond',serif;color:#1E1B19;margin-top:14px">The team behind the work</div>
+          <div style="width:34px;height:2px;background:#D9C9A0;margin:20px auto 0"></div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:28px">
+          <!-- Person 1 -->
+          <div>
+            <div style="width:100%;aspect-ratio:3/3.7;background-color:#E6DECC;background-image:repeating-linear-gradient(45deg,transparent,transparent 6px,rgba(185,169,137,.12) 6px,rgba(185,169,137,.12) 12px);display:flex;align-items:center;justify-content:center;border-radius:3px">
+              <span style="font:11px/1.5 'Courier New',monospace;color:#8A6A2E;text-align:center;opacity:0.7">PORTRAIT<br>Senior Partner</span>
+            </div>
+            <div style="margin-top:16px">
+              <div style="font:500 20px/1.3 'EB Garamond',serif;color:#1E1B19">Adv. R. Murikan</div>
+              <div style="font:500 13px/1 Montserrat,sans-serif;color:#B0894B;margin-top:6px">Senior Partner</div>
+              <div style="font:400 14px/1.5 Montserrat,sans-serif;color:#6E665E;margin-top:6px">Property &amp; Land, Disputes</div>
+              <div style="margin-top:12px"><span style="font:500 13px/1 Montserrat,sans-serif;color:#8A6A2E">View profile →</span></div>
+            </div>
+          </div>
+          <!-- Person 2 -->
+          <div>
+            <div style="width:100%;aspect-ratio:3/3.7;background-color:#E6DECC;background-image:repeating-linear-gradient(45deg,transparent,transparent 6px,rgba(185,169,137,.12) 6px,rgba(185,169,137,.12) 12px);display:flex;align-items:center;justify-content:center;border-radius:3px">
+              <span style="font:11px/1.5 'Courier New',monospace;color:#8A6A2E;text-align:center;opacity:0.7">PORTRAIT<br>Senior Partner</span>
+            </div>
+            <div style="margin-top:16px">
+              <div style="font:500 20px/1.3 'EB Garamond',serif;color:#1E1B19">Adv. S. Mangot</div>
+              <div style="font:500 13px/1 Montserrat,sans-serif;color:#B0894B;margin-top:6px">Senior Partner</div>
+              <div style="font:400 14px/1.5 Montserrat,sans-serif;color:#6E665E;margin-top:6px">Corporate &amp; Commercial</div>
+              <div style="margin-top:12px"><span style="font:500 13px/1 Montserrat,sans-serif;color:#8A6A2E">View profile →</span></div>
+            </div>
+          </div>
+          <!-- Person 3 -->
+          <div>
+            <div style="width:100%;aspect-ratio:3/3.7;background-color:#E6DECC;background-image:repeating-linear-gradient(45deg,transparent,transparent 6px,rgba(185,169,137,.12) 6px,rgba(185,169,137,.12) 12px);display:flex;align-items:center;justify-content:center;border-radius:3px">
+              <span style="font:11px/1.5 'Courier New',monospace;color:#8A6A2E;text-align:center;opacity:0.7">PORTRAIT<br>Partner</span>
+            </div>
+            <div style="margin-top:16px">
+              <div style="font:500 20px/1.3 'EB Garamond',serif;color:#1E1B19">Adv. Priya Nair</div>
+              <div style="font:500 13px/1 Montserrat,sans-serif;color:#B0894B;margin-top:6px">Partner</div>
+              <div style="font:400 14px/1.5 Montserrat,sans-serif;color:#6E665E;margin-top:6px">Family &amp; Succession</div>
+              <div style="margin-top:12px"><span style="font:500 13px/1 Montserrat,sans-serif;color:#8A6A2E">View profile →</span></div>
+            </div>
+          </div>
+          <!-- Person 4 -->
+          <div>
+            <div style="width:100%;aspect-ratio:3/3.7;background-color:#E6DECC;background-image:repeating-linear-gradient(45deg,transparent,transparent 6px,rgba(185,169,137,.12) 6px,rgba(185,169,137,.12) 12px);display:flex;align-items:center;justify-content:center;border-radius:3px">
+              <span style="font:11px/1.5 'Courier New',monospace;color:#8A6A2E;text-align:center;opacity:0.7">PORTRAIT<br>Associate</span>
+            </div>
+            <div style="margin-top:16px">
+              <div style="font:500 20px/1.3 'EB Garamond',serif;color:#1E1B19">Adv. Arun Menon</div>
+              <div style="font:500 13px/1 Montserrat,sans-serif;color:#B0894B;margin-top:6px">Associate</div>
+              <div style="font:400 14px/1.5 Montserrat,sans-serif;color:#6E665E;margin-top:6px">Disputes &amp; Litigation</div>
+              <div style="margin-top:12px"><span style="font:500 13px/1 Montserrat,sans-serif;color:#8A6A2E">View profile →</span></div>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:48px"><span style="font:500 15px/1 Montserrat,sans-serif;color:#8A6A2E">Meet the full team →</span></div>
+      </div>
+    </div>
+
+    <!-- ——— 7. LATEST INSIGHTS ——— -->
+    <div data-screen-label="Insights" style="padding:96px 80px;border-top:1px solid #E6DECC">
+      <div style="max-width:1280px;margin:0 auto">
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px">
+          <div>
+            <div style="font:500 12px/1 Montserrat,sans-serif;color:#8A6A2E;letter-spacing:0.08em;text-transform:uppercase">Insights</div>
+            <div style="font:500 36px/1.2 'EB Garamond',serif;color:#1E1B19;margin-top:14px">Perspectives on the law</div>
+            <div style="width:34px;height:2px;background:#D9C9A0;margin-top:20px"></div>
+          </div>
+          <span style="font:500 15px/1 Montserrat,sans-serif;color:#8A6A2E">View all insights →</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px">
+          <!-- Article 1 -->
+          <div style="background:#FFFFFF;border:1px solid #E6DECC;border-radius:3px;padding:32px;display:flex;flex-direction:column">
+            <div style="font:500 11px/1 Montserrat,sans-serif;color:#B0894B;letter-spacing:0.06em;text-transform:uppercase">Property &amp; Land</div>
+            <div style="font:500 20px/1.35 'EB Garamond',serif;color:#1E1B19;margin-top:14px">Understanding property title verification in Kerala</div>
+            <div style="font:400 13px/1 Montserrat,sans-serif;color:#6E665E;margin-top:12px">12 June 2025</div>
+            <div style="font:400 15px/1.6 Montserrat,sans-serif;color:#3A3531;margin-top:12px;flex:1">A clear title is the foundation of any property transaction. What buyers and sellers should know about the verification process.</div>
+            <div style="margin-top:20px"><span style="font:500 14px/1 Montserrat,sans-serif;color:#8A6A2E">Read more →</span></div>
+          </div>
+          <!-- Article 2 -->
+          <div style="background:#FFFFFF;border:1px solid #E6DECC;border-radius:3px;padding:32px;display:flex;flex-direction:column">
+            <div style="font:500 11px/1 Montserrat,sans-serif;color:#B0894B;letter-spacing:0.06em;text-transform:uppercase">Corporate</div>
+            <div style="font:500 20px/1.35 'EB Garamond',serif;color:#1E1B19;margin-top:14px">Key considerations when forming a company in India</div>
+            <div style="font:400 13px/1 Montserrat,sans-serif;color:#6E665E;margin-top:12px">28 May 2025</div>
+            <div style="font:400 15px/1.6 Montserrat,sans-serif;color:#3A3531;margin-top:12px;flex:1">From choosing the right structure to meeting regulatory requirements — an overview of the steps involved in company formation.</div>
+            <div style="margin-top:20px"><span style="font:500 14px/1 Montserrat,sans-serif;color:#8A6A2E">Read more →</span></div>
+          </div>
+          <!-- Article 3 -->
+          <div style="background:#FFFFFF;border:1px solid #E6DECC;border-radius:3px;padding:32px;display:flex;flex-direction:column">
+            <div style="font:500 11px/1 Montserrat,sans-serif;color:#B0894B;letter-spacing:0.06em;text-transform:uppercase">Family &amp; Succession</div>
+            <div style="font:500 20px/1.35 'EB Garamond',serif;color:#1E1B19;margin-top:14px">Succession planning for family-held property</div>
+            <div style="font:400 13px/1 Montserrat,sans-serif;color:#6E665E;margin-top:12px">15 April 2025</div>
+            <div style="font:400 15px/1.6 Montserrat,sans-serif;color:#3A3531;margin-top:12px;flex:1">How families can approach estate planning and succession to protect assets and reduce disputes across generations.</div>
+            <div style="margin-top:20px"><span style="font:500 14px/1 Montserrat,sans-serif;color:#8A6A2E">Read more →</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ——— 8. CTA BAND ——— -->
+    <div data-screen-label="CTA Band" style="background:#1E1B19;padding:64px 80px;text-align:center">
+      <div style="font:500 34px/1.2 'EB Garamond',serif;color:#F4EFE4">Have a legal question?</div>
+      <div style="font:400 16px/1.5 Montserrat,sans-serif;color:#B5AB99;margin-top:14px">We are available for a conversation at your convenience.</div>
+      <div style="display:inline-block;background:#B0894B;padding:14px 36px;border-radius:2px;margin-top:28px"><span style="font:500 14px/1 Montserrat,sans-serif;color:#1E1B19">Get in Touch</span></div>
+    </div>
+
+    <!-- ——— 9. FOOTER ——— -->
+    <div data-screen-label="Footer" style="background:#1E1B19">
+      <div style="padding:56px 64px;display:grid;grid-template-columns:1.3fr 0.8fr 1fr;gap:48px">
+        <div>
+          <div style="font:500 22px/1.2 'EB Garamond',serif;color:#F4EFE4">Murikan &amp; Mangot</div>
+          <div style="font:400 14px/1.7 Montserrat,sans-serif;color:#B5AB99;margin-top:16px">Advocates &amp; Legal Consultants<br>[Office Address]<br>Ernakulam, Kochi 682 0XX<br>Kerala, India</div>
+        </div>
+        <div>
+          <div style="font:500 12px/1 Montserrat,sans-serif;color:#C9A35C;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:20px">Quick Links</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <span style="font:400 14px/1 Montserrat,sans-serif;color:#E8E0D2">About the Firm</span>
+            <span style="font:400 14px/1 Montserrat,sans-serif;color:#E8E0D2">Practice Areas</span>
+            <span style="font:400 14px/1 Montserrat,sans-serif;color:#E8E0D2">Our People</span>
+            <span style="font:400 14px/1 Montserrat,sans-serif;color:#E8E0D2">Insights</span>
+            <span style="font:400 14px/1 Montserrat,sans-serif;color:#E8E0D2">Contact</span>
+          </div>
+        </div>
+        <div>
+          <div style="font:500 12px/1 Montserrat,sans-serif;color:#C9A35C;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:20px">Get in Touch</div>
+          <div style="display:flex;flex-direction:column;gap:12px;font:400 14px/1.5 Montserrat,sans-serif;color:#E8E0D2">
+            <span>+91 484 XXX XXXX</span>
+            <span>contact@murikanmangot.com</span>
+            <span style="color:#B5AB99;margin-top:4px">Mon – Sat · 9:30 AM – 6:00 PM</span>
+          </div>
+        </div>
+      </div>
+      <div style="height:1px;background:#D9C9A0;opacity:0.2;margin:0 64px"></div>
+      <div style="padding:20px 64px;display:flex;justify-content:space-between;align-items:flex-start;gap:32px">
+        <div style="font:400 11px/1.5 Montserrat,sans-serif;color:#B5AB99;max-width:620px">In keeping with Bar Council of India rules, this site is for information only and is not an advertisement or solicitation.</div>
+        <div style="font:400 11px/1 Montserrat,sans-serif;color:#B5AB99;flex-shrink:0">© 2025 Murikan &amp; Mangot. All rights reserved.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════ DISCLAIMER POPUP — DESKTOP ═══════════ -->
+<div style="position:absolute;left:80px;top:4700px;width:1440px">
+  <div data-drags-parent="1" style="position:absolute;top:-30px;font:500 12px/1 system-ui,sans-serif;color:rgba(60,50,40,.6)">Disclaimer Popup — Desktop · overlay state</div>
+  <div style="background:#1E1B19;box-shadow:0 2px 20px rgba(0,0,0,.1);overflow:hidden;position:relative;height:820px">
+    <!-- Dimmed page behind (faux) -->
+    <div style="position:absolute;inset:0;background-color:#3A3531;background-image:repeating-linear-gradient(45deg,transparent,transparent 8px,rgba(255,255,255,.015) 8px,rgba(255,255,255,.015) 16px);opacity:0.5"></div>
+    <div style="position:absolute;inset:0;background:rgba(30,27,25,.75)"></div>
+    <!-- Modal -->
+    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:580px;background:#FFFFFF;border-radius:4px;box-shadow:0 16px 48px rgba(0,0,0,.3);overflow:hidden">
+      <!-- Gold top accent -->
+      <div style="height:3px;background:#B0894B"></div>
+      <div style="padding:40px 44px 36px">
+        <!-- Firm name -->
+        <div style="font:500 22px/1.2 'EB Garamond',serif;color:#1E1B19;text-align:center">Murikan &amp; Mangot</div>
+        <div style="font:500 11px/1 Montserrat,sans-serif;color:#B0894B;letter-spacing:0.08em;text-transform:uppercase;text-align:center;margin-top:6px">Advocates &amp; Legal Consultants</div>
+        <!-- Divider -->
+        <div style="width:34px;height:2px;background:#D9C9A0;margin:24px auto"></div>
+        <!-- Heading -->
+        <div style="font:500 26px/1.2 'EB Garamond',serif;color:#1E1B19;text-align:center">Disclaimer</div>
+        <!-- Body -->
+        <div style="font:400 14px/1.7 Montserrat,sans-serif;color:#3A3531;margin-top:20px">As per the rules of the Bar Council of India, advocates are not permitted to solicit work or advertise. By clicking "I Agree" below, you acknowledge that:</div>
+        <div style="margin-top:16px;display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;gap:12px;align-items:flex-start">
+            <div style="width:6px;height:6px;background:#B0894B;border-radius:50%;margin-top:7px;flex-shrink:0"></div>
+            <div style="font:400 14px/1.7 Montserrat,sans-serif;color:#3A3531">There has been no advertisement, personal communication, solicitation, invitation, or inducement of any sort whatsoever from us or any of our members to solicit any work through this website.</div>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start">
+            <div style="width:6px;height:6px;background:#B0894B;border-radius:50%;margin-top:7px;flex-shrink:0"></div>
+            <div style="font:400 14px/1.7 Montserrat,sans-serif;color:#3A3531">You wish to gain more information about us for your own information and use.</div>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start">
+            <div style="width:6px;height:6px;background:#B0894B;border-radius:50%;margin-top:7px;flex-shrink:0"></div>
+            <div style="font:400 14px/1.7 Montserrat,sans-serif;color:#3A3531">The information about us is provided to you on your specific request and any information obtained or materials downloaded from this website are completely at your own volition.</div>
+          </div>
+        </div>
+        <div style="font:400 13px/1.6 Montserrat,sans-serif;color:#6E665E;margin-top:20px">The information provided on this website does not constitute legal advice and should not be construed as a solicitation or form of attorney-client relationship.</div>
+        <!-- Buttons -->
+        <div style="display:flex;gap:16px;margin-top:28px">
+          <div style="flex:1;background:#B0894B;padding:14px 24px;border-radius:2px;text-align:center"><span style="font:500 14px/1 Montserrat,sans-serif;color:#1E1B19">I Agree</span></div>
+          <div style="flex:1;border:1.5px solid #E6DECC;padding:13px 24px;border-radius:2px;text-align:center"><span style="font:500 14px/1 Montserrat,sans-serif;color:#6E665E">I Disagree</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ DISCLAIMER POPUP — MOBILE ═══════════ -->
+<div style="position:absolute;left:2080px;top:4700px;width:375px">
+  <div data-drags-parent="1" style="position:absolute;top:-30px;font:500 12px/1 system-ui,sans-serif;color:rgba(60,50,40,.6)">Disclaimer Popup — Mobile · 375px</div>
+  <div style="background:#1E1B19;box-shadow:0 2px 20px rgba(0,0,0,.1);overflow:hidden;position:relative;height:820px">
+    <!-- Dimmed page behind -->
+    <div style="position:absolute;inset:0;background-color:#3A3531;background-image:repeating-linear-gradient(45deg,transparent,transparent 8px,rgba(255,255,255,.015) 8px,rgba(255,255,255,.015) 16px);opacity:0.5"></div>
+    <div style="position:absolute;inset:0;background:rgba(30,27,25,.75)"></div>
+    <!-- Modal — bottom sheet style on mobile -->
+    <div style="position:absolute;bottom:0;left:0;right:0;background:#FFFFFF;border-radius:12px 12px 0 0;box-shadow:0 -8px 32px rgba(0,0,0,.25);overflow:hidden">
+      <!-- Gold top accent -->
+      <div style="height:3px;background:#B0894B"></div>
+      <!-- Drag handle -->
+      <div style="display:flex;justify-content:center;padding-top:12px"><div style="width:36px;height:4px;background:#E6DECC;border-radius:2px"></div></div>
+      <div style="padding:20px 24px 32px">
+        <!-- Firm name -->
+        <div style="font:500 19px/1.2 'EB Garamond',serif;color:#1E1B19;text-align:center">Murikan &amp; Mangot</div>
+        <div style="font:500 10px/1 Montserrat,sans-serif;color:#B0894B;letter-spacing:0.08em;text-transform:uppercase;text-align:center;margin-top:5px">Advocates &amp; Legal Consultants</div>
+        <div style="width:28px;height:2px;background:#D9C9A0;margin:18px auto"></div>
+        <div style="font:500 22px/1.2 'EB Garamond',serif;color:#1E1B19;text-align:center">Disclaimer</div>
+        <!-- Body -->
+        <div style="font:400 13px/1.65 Montserrat,sans-serif;color:#3A3531;margin-top:16px">As per the rules of the Bar Council of India, advocates are not permitted to solicit work or advertise. By clicking "I Agree" below, you acknowledge that:</div>
+        <div style="margin-top:14px;display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;gap:10px;align-items:flex-start">
+            <div style="width:5px;height:5px;background:#B0894B;border-radius:50%;margin-top:6px;flex-shrink:0"></div>
+            <div style="font:400 13px/1.65 Montserrat,sans-serif;color:#3A3531">There has been no solicitation, invitation, or inducement of any sort from us to solicit work through this website.</div>
+          </div>
+          <div style="display:flex;gap:10px;align-items:flex-start">
+            <div style="width:5px;height:5px;background:#B0894B;border-radius:50%;margin-top:6px;flex-shrink:0"></div>
+            <div style="font:400 13px/1.65 Montserrat,sans-serif;color:#3A3531">You wish to gain more information about us for your own use.</div>
+          </div>
+          <div style="display:flex;gap:10px;align-items:flex-start">
+            <div style="width:5px;height:5px;background:#B0894B;border-radius:50%;margin-top:6px;flex-shrink:0"></div>
+            <div style="font:400 13px/1.65 Montserrat,sans-serif;color:#3A3531">Any information obtained from this website is at your own volition and does not constitute legal advice.</div>
+          </div>
+        </div>
+        <!-- Buttons -->
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:24px">
+          <div style="background:#B0894B;padding:14px 24px;border-radius:2px;text-align:center"><span style="font:500 14px/1 Montserrat,sans-serif;color:#1E1B19">I Agree</span></div>
+          <div style="border:1.5px solid #E6DECC;padding:13px 24px;border-radius:2px;text-align:center"><span style="font:500 14px/1 Montserrat,sans-serif;color:#6E665E">I Disagree</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ HOME — MOBILE 375px ═══════════ -->
+<div style="position:absolute;left:1620px;top:80px;width:375px">
+  <div data-drags-parent="1" style="position:absolute;top:-30px;font:500 12px/1 system-ui,sans-serif;color:rgba(60,50,40,.6)">Home — Mobile · 375px</div>
+  <div style="background:#F4EFE4;box-shadow:0 2px 20px rgba(0,0,0,.1);overflow:hidden">
+
+    <!-- ——— 1. HERO ——— -->
+    <div data-screen-label="Hero (mobile)" style="position:relative;height:540px;overflow:hidden">
+      <!-- Placeholder image bg -->
+      <div style="position:absolute;inset:0;background-color:#3A3531;background-image:repeating-linear-gradient(45deg,transparent,transparent 8px,rgba(255,255,255,.025) 8px,rgba(255,255,255,.025) 16px)"></div>
+      <div style="position:absolute;right:12px;bottom:10px;font:9px/1 'Courier New',monospace;color:rgba(255,255,255,.15);z-index:3">PHOTO: Kochi waterfront</div>
+      <!-- Scrim -->
+      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(30,27,25,.85) 0%,rgba(30,27,25,.5) 50%,rgba(30,27,25,.3) 100%)"></div>
+      <!-- Mobile Nav -->
+      <div style="position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:64px">
+        <div style="font:500 18px/1 'EB Garamond',serif;color:#F4EFE4">Murikan &amp; Mangot</div>
+        <!-- Hamburger -->
+        <div style="display:flex;flex-direction:column;gap:5px;padding:8px">
+          <div style="width:20px;height:1.5px;background:#E8E0D2"></div>
+          <div style="width:20px;height:1.5px;background:#E8E0D2"></div>
+          <div style="width:20px;height:1.5px;background:#E8E0D2"></div>
+        </div>
+      </div>
+      <!-- Hero content -->
+      <div style="position:relative;z-index:1;display:flex;flex-direction:column;justify-content:flex-end;padding:0 24px 48px;height:calc(100% - 64px)">
+        <div style="font:500 11px/1 Montserrat,sans-serif;color:#C9A35C;letter-spacing:0.08em;text-transform:uppercase">Advocates · Ernakulam</div>
+        <div style="font:500 36px/1.12 'EB Garamond',serif;color:#FFFFFF;margin-top:16px">Trusted counsel, rooted in Kerala</div>
+        <div style="font:400 15px/1.6 Montserrat,sans-serif;color:#E8E0D2;margin-top:14px">Guiding individuals and businesses through complex legal matters with care and clarity.</div>
+        <div style="margin-top:24px">
+          <div style="background:#B0894B;padding:12px 24px;border-radius:2px;text-align:center;display:inline-block"><span style="font:500 13px/1 Montserrat,sans-serif;color:#1E1B19">Talk to Us</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ——— 2. CREDIBILITY STRIP ——— -->
+    <div data-screen-label="Credibility (mobile)" style="background:#1E1B19;display:flex;flex-direction:column;gap:16px;padding:28px 24px">
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="width:24px;height:24px;border:1.5px solid #C9A35C;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0"><div style="width:8px;height:8px;background:#C9A35C;border-radius:50%"></div></div>
+        <span style="font:500 12px/1.4 Montserrat,sans-serif;color:#E8E0D2">Practising before the High Court of Kerala</span>
+      </div>
+      <div style="height:1px;background:#D9C9A0;opacity:0.15"></div>
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="width:24px;height:24px;border:1.5px solid #C9A35C;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0"><div style="width:8px;height:8px;background:#C9A35C;border-radius:50%"></div></div>
+        <span style="font:500 12px/1.4 Montserrat,sans-serif;color:#E8E0D2">Established in Ernakulam</span>
+      </div>
+      <div style="height:1px;background:#D9C9A0;opacity:0.15"></div>
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="width:24px;height:24px;border:1.5px solid #C9A35C;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0"><div style="width:8px;height:8px;background:#C9A35C;border-radius:50%"></div></div>
+        <span style="font:500 12px/1.4 Montserrat,sans-serif;color:#E8E0D2">Ernakulam, Kochi, Kerala</span>
+      </div>
+    </div>
+
+    <!-- ——— 3. POSITIONING INTRO ——— -->
+    <div data-screen-label="Introduction (mobile)" style="padding:56px 24px">
+      <!-- Image placeholder -->
+      <div style="height:220px;background-color:#E6DECC;background-image:repeating-linear-gradient(45deg,transparent,transparent 6px,rgba(185,169,137,.12) 6px,rgba(185,169,137,.12) 12px);display:flex;align-items:center;justify-content:center;border-radius:3px;margin-bottom:32px">
+        <span style="font:10px/1.5 'Courier New',monospace;color:#8A6A2E;text-align:center;opacity:0.7">PHOTO<br>Firm office or Kochi architecture</span>
+      </div>
+      <div style="font:500 11px/1 Montserrat,sans-serif;color:#8A6A2E;letter-spacing:0.08em;text-transform:uppercase">About the Firm</div>
+      <div style="font:500 28px/1.2 'EB Garamond',serif;color:#1E1B19;margin-top:12px">A practice built on understanding</div>
+      <div style="width:34px;height:2px;background:#D9C9A0;margin-top:16px"></div>
+      <div style="font:400 15px/1.7 Montserrat,sans-serif;color:#3A3531;margin-top:20px">Murikan &amp; Mangot is a law firm based in Ernakulam, Kochi, practising before the High Court of Kerala. We bring a measured, personal approach to legal counsel — listening carefully, advising clearly, and working with discretion.</div>
+      <div style="margin-top:24px"><span style="font:500 14px/1 Montserrat,sans-serif;color:#8A6A2E">Learn more about us →</span></div>
+    </div>
+
+    <!-- ——— 4. PRACTICE AREAS ——— -->
+    <div data-screen-label="Practice Areas (mobile)" style="padding:56px 24px;border-top:1px solid #E6DECC">
+      <div style="text-align:center;margin-bottom:36px">
+        <div style="font:500 11px/1 Montserrat,sans-serif;color:#8A6A2E;letter-spacing:0.08em;text-transform:uppercase">Practice Areas</div>
+        <div style="font:500 28px/1.2 'EB Garamond',serif;color:#1E1B19;margin-top:12px">How we can help</div>
+        <div style="width:34px;height:2px;background:#D9C9A0;margin:16px auto 0"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <!-- Property & Land -->
+        <div style="background:#FFFFFF;border:1px solid #E6DECC;border-radius:3px;padding:24px">
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:12px">
+            <div style="width:36px;height:36px;border:1.5px solid #D9C9A0;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0"><div style="width:11px;height:11px;border:1.5px solid #C9A35C;border-radius:2px"></div></div>
+            <div style="font:500 19px/1.3 'EB Garamond',serif;color:#1E1B19">Property &amp; Land</div>
+          </div>
+          <div style="font:400 14px/1.6 Montserrat,sans-serif;color:#3A3531">Navigating property transactions, title disputes, and land acquisition with thorough local knowledge.</div>
+          <div style="margin-top:14px"><span style="font:500 13px/1 Montserrat,sans-serif;color:#8A6A2E">Learn more →</span></div>
+        </div>
+        <!-- Corporate & Commercial -->
+        <div style="background:#FFFFFF;border:1px solid #E6DECC;border-radius:3px;padding:24px">
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:12px">
+            <div style="width:36px;height:36px;border:1.5px solid #D9C9A0;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0"><div style="width:11px;height:11px;border:1.5px solid #C9A35C;border-radius:50%"></div></div>
+            <div style="font:500 19px/1.3 'EB Garamond',serif;color:#1E1B19">Corporate &amp; Commercial</div>
+          </div>
+          <div style="font:400 14px/1.6 Montserrat,sans-serif;color:#3A3531">Supporting businesses with formation, governance, contracts, and regulatory compliance.</div>
+          <div style="margin-top:14px"><span style="font:500 13px/1 Montserrat,sans-serif;color:#8A6A2E">Learn more →</span></div>
+        </div>
+        <!-- Family & Succession -->
+        <div style="background:#FFFFFF;border:1px solid #E6DECC;border-radius:3px;padding:24px">
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:12px">
+            <div style="width:36px;height:36px;border:1.5px solid #D9C9A0;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0"><div style="width:11px;height:11px;border:1.5px solid #C9A35C;transform:rotate(45deg)"></div></div>
+            <div style="font:500 19px/1.3 'EB Garamond',serif;color:#1E1B19">Family &amp; Succession</div>
+          </div>
+          <div style="font:400 14px/1.6 Montserrat,sans-serif;color:#3A3531">Handling family matters, inheritance, and succession planning with sensitivity and care.</div>
+          <div style="margin-top:14px"><span style="font:500 13px/1 Montserrat,sans-serif;color:#8A6A2E">Learn more →</span></div>
+        </div>
+        <!-- Disputes & Litigation -->
+        <div style="background:#FFFFFF;border:1px solid #E6DECC;border-radius:3px;padding:24px">
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:12px">
+            <div style="width:36px;height:36px;border:1.5px solid #D9C9A0;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0"><div style="width:11px;height:11px;border:1.5px solid #C9A35C;border-radius:1px"></div></div>
+            <div style="font:500 19px/1.3 'EB Garamond',serif;color:#1E1B19">Disputes &amp; Litigation</div>
+          </div>
+          <div style="font:400 14px/1.6 Montserrat,sans-serif;color:#3A3531">Representing clients in civil and commercial disputes before courts and tribunals across Kerala.</div>
+          <div style="margin-top:14px"><span style="font:500 13px/1 Montserrat,sans-serif;color:#8A6A2E">Learn more →</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ——— 5. APPROACH ——— -->
+    <div data-screen-label="Approach (mobile)" style="padding:56px 24px;background:#1E1B19">
+      <div style="text-align:center;margin-bottom:36px">
+        <div style="font:500 11px/1 Montserrat,sans-serif;color:#C9A35C;letter-spacing:0.08em;text-transform:uppercase">Our Approach</div>
+        <div style="font:500 28px/1.2 'EB Garamond',serif;color:#F4EFE4;margin-top:12px">How we work</div>
+        <div style="width:34px;height:2px;background:#D9C9A0;margin:16px auto 0"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:32px">
+        <div>
+          <div style="width:34px;height:2px;background:#C9A35C;margin-bottom:16px"></div>
+          <div style="font:500 20px/1.3 'EB Garamond',serif;color:#F4EFE4">High Court Practice</div>
+          <div style="font:400 14px/1.65 Montserrat,sans-serif;color:#B5AB99;margin-top:10px">Our advocates regularly appear before the High Court of Kerala, handling civil appeals, writ petitions, and commercial matters.</div>
+        </div>
+        <div>
+          <div style="width:34px;height:2px;background:#C9A35C;margin-bottom:16px"></div>
+          <div style="font:500 20px/1.3 'EB Garamond',serif;color:#F4EFE4">Local Knowledge</div>
+          <div style="font:400 14px/1.65 Montserrat,sans-serif;color:#B5AB99;margin-top:10px">Rooted in Ernakulam's legal community, we bring deep familiarity with Kerala's regulatory landscape and local processes.</div>
+        </div>
+        <div>
+          <div style="width:34px;height:2px;background:#C9A35C;margin-bottom:16px"></div>
+          <div style="font:500 20px/1.3 'EB Garamond',serif;color:#F4EFE4">Personal Counsel</div>
+          <div style="font:400 14px/1.65 Montserrat,sans-serif;color:#B5AB99;margin-top:10px">Every matter receives direct attention from experienced advocates. We communicate clearly and keep you informed at each step.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ——— 6. PEOPLE ——— -->
+    <div data-screen-label="People (mobile)" style="padding:56px 24px;border-top:1px solid #E6DECC">
+      <div style="text-align:center;margin-bottom:36px">
+        <div style="font:500 11px/1 Montserrat,sans-serif;color:#8A6A2E;letter-spacing:0.08em;text-transform:uppercase">Our People</div>
+        <div style="font:500 28px/1.2 'EB Garamond',serif;color:#1E1B19;margin-top:12px">The team behind the work</div>
+        <div style="width:34px;height:2px;background:#D9C9A0;margin:16px auto 0"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <!-- Person 1 -->
+        <div>
+          <div style="width:100%;aspect-ratio:3/3.7;background-color:#E6DECC;background-image:repeating-linear-gradient(45deg,transparent,transparent 5px,rgba(185,169,137,.12) 5px,rgba(185,169,137,.12) 10px);display:flex;align-items:center;justify-content:center;border-radius:3px">
+            <span style="font:9px/1.4 'Courier New',monospace;color:#8A6A2E;text-align:center;opacity:0.7">PORTRAIT</span>
+          </div>
+          <div style="margin-top:12px">
+            <div style="font:500 17px/1.25 'EB Garamond',serif;color:#1E1B19">Adv. R. Murikan</div>
+            <div style="font:500 11px/1 Montserrat,sans-serif;color:#B0894B;margin-top:5px">Senior Partner</div>
+            <div style="font:400 12px/1.4 Montserrat,sans-serif;color:#6E665E;margin-top:4px">Property &amp; Land</div>
+          </div>
+        </div>
+        <!-- Person 2 -->
+        <div>
+          <div style="width:100%;aspect-ratio:3/3.7;background-color:#E6DECC;background-image:repeating-linear-gradient(45deg,transparent,transparent 5px,rgba(185,169,137,.12) 5px,rgba(185,169,137,.12) 10px);display:flex;align-items:center;justify-content:center;border-radius:3px">
+            <span style="font:9px/1.4 'Courier New',monospace;color:#8A6A2E;text-align:center;opacity:0.7">PORTRAIT</span>
+          </div>
+          <div style="margin-top:12px">
+            <div style="font:500 17px/1.25 'EB Garamond',serif;color:#1E1B19">Adv. S. Mangot</div>
+            <div style="font:500 11px/1 Montserrat,sans-serif;color:#B0894B;margin-top:5px">Senior Partner</div>
+            <div style="font:400 12px/1.4 Montserrat,sans-serif;color:#6E665E;margin-top:4px">Corporate</div>
+          </div>
+        </div>
+        <!-- Person 3 -->
+        <div>
+          <div style="width:100%;aspect-ratio:3/3.7;background-color:#E6DECC;background-image:repeating-linear-gradient(45deg,transparent,transparent 5px,rgba(185,169,137,.12) 5px,rgba(185,169,137,.12) 10px);display:flex;align-items:center;justify-content:center;border-radius:3px">
+            <span style="font:9px/1.4 'Courier New',monospace;color:#8A6A2E;text-align:center;opacity:0.7">PORTRAIT</span>
+          </div>
+          <div style="margin-top:12px">
+            <div style="font:500 17px/1.25 'EB Garamond',serif;color:#1E1B19">Adv. Priya Nair</div>
+            <div style="font:500 11px/1 Montserrat,sans-serif;color:#B0894B;margin-top:5px">Partner</div>
+            <div style="font:400 12px/1.4 Montserrat,sans-serif;color:#6E665E;margin-top:4px">Family &amp; Succession</div>
+          </div>
+        </div>
+        <!-- Person 4 -->
+        <div>
+          <div style="width:100%;aspect-ratio:3/3.7;background-color:#E6DECC;background-image:repeating-linear-gradient(45deg,transparent,transparent 5px,rgba(185,169,137,.12) 5px,rgba(185,169,137,.12) 10px);display:flex;align-items:center;justify-content:center;border-radius:3px">
+            <span style="font:9px/1.4 'Courier New',monospace;color:#8A6A2E;text-align:center;opacity:0.7">PORTRAIT</span>
+          </div>
+          <div style="margin-top:12px">
+            <div style="font:500 17px/1.25 'EB Garamond',serif;color:#1E1B19">Adv. Arun Menon</div>
+            <div style="font:500 11px/1 Montserrat,sans-serif;color:#B0894B;margin-top:5px">Associate</div>
+            <div style="font:400 12px/1.4 Montserrat,sans-serif;color:#6E665E;margin-top:4px">Disputes</div>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:28px"><span style="font:500 14px/1 Montserrat,sans-serif;color:#8A6A2E">Meet the full team →</span></div>
+    </div>
+
+    <!-- ——— 7. INSIGHTS ——— -->
+    <div data-screen-label="Insights (mobile)" style="padding:56px 24px;border-top:1px solid #E6DECC">
+      <div style="margin-bottom:32px">
+        <div style="font:500 11px/1 Montserrat,sans-serif;color:#8A6A2E;letter-spacing:0.08em;text-transform:uppercase">Insights</div>
+        <div style="font:500 28px/1.2 'EB Garamond',serif;color:#1E1B19;margin-top:12px">Perspectives on the law</div>
+        <div style="width:34px;height:2px;background:#D9C9A0;margin-top:16px"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <!-- Article 1 -->
+        <div style="background:#FFFFFF;border:1px solid #E6DECC;border-radius:3px;padding:24px">
+          <div style="font:500 10px/1 Montserrat,sans-serif;color:#B0894B;letter-spacing:0.06em;text-transform:uppercase">Property &amp; Land</div>
+          <div style="font:500 18px/1.3 'EB Garamond',serif;color:#1E1B19;margin-top:10px">Understanding property title verification in Kerala</div>
+          <div style="font:400 12px/1 Montserrat,sans-serif;color:#6E665E;margin-top:10px">12 June 2025</div>
+          <div style="font:400 14px/1.6 Montserrat,sans-serif;color:#3A3531;margin-top:10px">A clear title is the foundation of any property transaction. What buyers and sellers should know.</div>
+          <div style="margin-top:14px"><span style="font:500 13px/1 Montserrat,sans-serif;color:#8A6A2E">Read more →</span></div>
+        </div>
+        <!-- Article 2 -->
+        <div style="background:#FFFFFF;border:1px solid #E6DECC;border-radius:3px;padding:24px">
+          <div style="font:500 10px/1 Montserrat,sans-serif;color:#B0894B;letter-spacing:0.06em;text-transform:uppercase">Corporate</div>
+          <div style="font:500 18px/1.3 'EB Garamond',serif;color:#1E1B19;margin-top:10px">Key considerations when forming a company in India</div>
+          <div style="font:400 12px/1 Montserrat,sans-serif;color:#6E665E;margin-top:10px">28 May 2025</div>
+          <div style="font:400 14px/1.6 Montserrat,sans-serif;color:#3A3531;margin-top:10px">From choosing the right structure to meeting regulatory requirements — an overview of company formation.</div>
+          <div style="margin-top:14px"><span style="font:500 13px/1 Montserrat,sans-serif;color:#8A6A2E">Read more →</span></div>
+        </div>
+        <!-- Article 3 -->
+        <div style="background:#FFFFFF;border:1px solid #E6DECC;border-radius:3px;padding:24px">
+          <div style="font:500 10px/1 Montserrat,sans-serif;color:#B0894B;letter-spacing:0.06em;text-transform:uppercase">Family &amp; Succession</div>
+          <div style="font:500 18px/1.3 'EB Garamond',serif;color:#1E1B19;margin-top:10px">Succession planning for family-held property</div>
+          <div style="font:400 12px/1 Montserrat,sans-serif;color:#6E665E;margin-top:10px">15 April 2025</div>
+          <div style="font:400 14px/1.6 Montserrat,sans-serif;color:#3A3531;margin-top:10px">How families can approach estate planning and succession to protect assets and reduce disputes.</div>
+          <div style="margin-top:14px"><span style="font:500 13px/1 Montserrat,sans-serif;color:#8A6A2E">Read more →</span></div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:24px"><span style="font:500 14px/1 Montserrat,sans-serif;color:#8A6A2E">View all insights →</span></div>
+    </div>
+
+    <!-- ——— 8. CTA BAND ——— -->
+    <div data-screen-label="CTA (mobile)" style="background:#1E1B19;padding:48px 24px;text-align:center">
+      <div style="font:500 26px/1.2 'EB Garamond',serif;color:#F4EFE4">Have a legal question?</div>
+      <div style="font:400 14px/1.5 Montserrat,sans-serif;color:#B5AB99;margin-top:12px">We are available for a conversation at your convenience.</div>
+      <div style="background:#B0894B;padding:14px 28px;border-radius:2px;margin-top:24px"><span style="font:500 14px/1 Montserrat,sans-serif;color:#1E1B19">Get in Touch</span></div>
+    </div>
+
+    <!-- ——— 9. FOOTER ——— -->
+    <div data-screen-label="Footer (mobile)" style="background:#1E1B19">
+      <div style="padding:40px 24px;display:flex;flex-direction:column;gap:32px">
+        <div>
+          <div style="font:500 20px/1.2 'EB Garamond',serif;color:#F4EFE4">Murikan &amp; Mangot</div>
+          <div style="font:400 13px/1.7 Montserrat,sans-serif;color:#B5AB99;margin-top:12px">Advocates &amp; Legal Consultants<br>[Office Address]<br>Ernakulam, Kochi 682 0XX<br>Kerala, India</div>
+        </div>
+        <div style="height:1px;background:#D9C9A0;opacity:0.15"></div>
+        <div>
+          <div style="font:500 11px/1 Montserrat,sans-serif;color:#C9A35C;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px">Quick Links</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <span style="font:400 13px/1 Montserrat,sans-serif;color:#E8E0D2">About</span>
+            <span style="font:400 13px/1 Montserrat,sans-serif;color:#E8E0D2">Practice Areas</span>
+            <span style="font:400 13px/1 Montserrat,sans-serif;color:#E8E0D2">People</span>
+            <span style="font:400 13px/1 Montserrat,sans-serif;color:#E8E0D2">Insights</span>
+            <span style="font:400 13px/1 Montserrat,sans-serif;color:#E8E0D2">Contact</span>
+          </div>
+        </div>
+        <div style="height:1px;background:#D9C9A0;opacity:0.15"></div>
+        <div>
+          <div style="font:500 11px/1 Montserrat,sans-serif;color:#C9A35C;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px">Get in Touch</div>
+          <div style="display:flex;flex-direction:column;gap:10px;font:400 13px/1.5 Montserrat,sans-serif;color:#E8E0D2">
+            <span>+91 484 XXX XXXX</span>
+            <span>contact@murikanmangot.com</span>
+            <span style="color:#B5AB99;margin-top:2px">Mon – Sat · 9:30 AM – 6:00 PM</span>
+          </div>
+        </div>
+      </div>
+      <div style="height:1px;background:#D9C9A0;opacity:0.12;margin:0 24px"></div>
+      <div style="padding:16px 24px 20px;display:flex;flex-direction:column;gap:8px">
+        <div style="font:400 10px/1.5 Montserrat,sans-serif;color:#B5AB99">In keeping with Bar Council of India rules, this site is for information only and is not an advertisement or solicitation.</div>
+        <div style="font:400 10px/1 Montserrat,sans-serif;color:#B5AB99">© 2025 Murikan &amp; Mangot. All rights reserved.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</x-dc>
+</body>
+</html>

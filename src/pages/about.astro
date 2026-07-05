@@ -1,0 +1,125 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import PersonCard from '../components/PersonCard.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { getCollection } from 'astro:content';
+import { contentSlug } from '../utils/content';
+import { SITE } from '../data/site';
+
+const people = (await getCollection('people')).sort((a, b) => a.data.order - b.data.order);
+const canonicalUrl = new URL('/about', Astro.site).href;
+
+const milestones = [
+  { year: '1998', text: 'Murikan & Mangot established in Ernakulam, beginning practice before the High Court of Kerala.' },
+  { year: '2005', text: 'Expanded corporate and commercial practice to serve growing businesses across Kerala.' },
+  { year: '2015', text: 'Strengthened family and succession practice with dedicated counsel for estate planning matters.' },
+  { year: 'Today', text: 'A team of advocates serving individuals and businesses across property, corporate, family, and litigation.' },
+];
+---
+
+<PageLayout
+  title="About"
+  description={`Learn about ${SITE.name} — advocates in Ernakulam, Kochi, practising before the High Court of Kerala.`}
+  canonicalUrl={canonicalUrl}
+>
+  <section class="section section--ivory">
+    <div class="container about-intro">
+      <SectionHeading eyebrow="About the Firm" heading="A practice built on understanding" />
+      <div class="prose about-intro__prose">
+        <p>
+          {SITE.name} is a law firm based in Ernakulam, Kochi. We practise before the High Court of Kerala and advise individuals and businesses across property, corporate, family, and litigation matters.
+        </p>
+        <p>
+          Our approach is measured and personal. We listen carefully, explain legal issues in plain language, and work with discretion at every stage. We do not promise outcomes — we focus on giving clients a clear understanding of their position and the options available to them.
+        </p>
+        <p>
+          Whether you are navigating a property transaction, structuring a company, addressing a family matter, or preparing for court proceedings, our team is here to provide thoughtful counsel rooted in Kerala's legal landscape.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--ivory section--border-top">
+    <div class="container">
+      <SectionHeading eyebrow="Our History" heading="Milestones" align="center" />
+      <ol class="timeline">
+        {milestones.map((item, index) => (
+          <li class="timeline__item">
+            <span class="timeline__dot" aria-hidden="true"></span>
+            <div class="timeline__content">
+              <p class="timeline__year">{item.year}</p>
+              <p class="timeline__text">{item.text}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--ivory section--border-top">
+    <div class="container">
+      <SectionHeading eyebrow="Our People" heading="The team" align="center" />
+      <div class="grid-4 grid-4--people">
+        {people.map((person) => (
+          <PersonCard
+            name={person.data.name}
+            slug={contentSlug(person.id)}
+            role={person.data.role}
+            photo={person.data.photo}
+            focusAreas={person.data.focusAreas}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+</PageLayout>
+
+<style>
+  .about-intro {
+    max-width: var(--prose-width);
+  }
+
+  .about-intro__prose {
+    margin-top: var(--space-4);
+  }
+
+  .timeline {
+    max-width: 40rem;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .timeline__item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-3);
+    align-items: flex-start;
+  }
+
+  .timeline__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--color-gold);
+    margin-top: 0.375rem;
+  }
+
+  .timeline__year {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline__text {
+    font-size: var(--text-body);
+    line-height: var(--leading-prose);
+    color: var(--color-body);
+  }
+</style>

@@ -1,0 +1,81 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { getCollection } from 'astro:content';
+import { contentSlug } from '../../utils/content';
+
+const insights = (await getCollection('insights')).sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+
+const categories = ['All', 'Property', 'Corporate', 'Family', 'Disputes', 'General'] as const;
+const canonicalUrl = new URL('/insights', Astro.site).href;
+---
+
+<PageLayout
+  title="Insights"
+  description="Perspectives on property, corporate, family, and litigation law from Murikan & Mangot."
+  canonicalUrl={canonicalUrl}
+>
+  <section class="section section--ivory">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Insights"
+        heading="Perspectives on the law"
+        align="center"
+      />
+
+      <nav class="insights-filter" aria-label="Filter by category">
+        {categories.map((cat) => (
+          <a
+            href={cat === 'All' ? '/insights' : `/insights#${cat.toLowerCase()}`}
+            class="insights-filter__tab"
+          >
+            {cat}
+          </a>
+        ))}
+      </nav>
+
+      <div id="all" class="insights-grid grid-3">
+        {insights.map((article) => (
+          <ArticleCard
+            title={article.data.title}
+            slug={contentSlug(article.id)}
+            category={article.data.category}
+            excerpt={article.data.excerpt}
+            publishDate={article.data.publishDate}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</PageLayout>
+
+<style>
+  .insights-filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-6);
+  }
+
+  .insights-filter__tab {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--color-card-border);
+    border-radius: var(--radius-button);
+    color: var(--color-body);
+    transition:
+      border-color var(--transition-fast),
+      color var(--transition-fast);
+  }
+
+  .insights-filter__tab:hover,
+  .insights-filter__tab:focus-visible {
+    border-color: var(--color-gold);
+    color: var(--color-gold-deep);
+  }
+</style>

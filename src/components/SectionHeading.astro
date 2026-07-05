@@ -1,0 +1,52 @@
+---
+interface Props {
+  eyebrow: string;
+  heading: string;
+  align?: 'left' | 'center';
+  variant?: 'light' | 'dark' | 'sage';
+}
+
+const { eyebrow, heading, align = 'left', variant = 'light' } = Astro.props;
+
+const eyebrowClass =
+  variant === 'dark' ? 'eyebrow--dark' : variant === 'sage' ? 'eyebrow--sage' : 'eyebrow--light';
+---
+
+<div class:list={['section-heading', `section-heading--${align}`, `section-heading--${variant}`]}>
+  <p class="eyebrow" class:list={[eyebrowClass]}>
+    {eyebrow}
+  </p>
+  <h2 class="section-heading__title">{heading}</h2>
+  <div class="gold-bar" class:list={[align === 'center' && 'gold-bar--center']}></div>
+</div>
+
+<style>
+  .section-heading {
+    margin-bottom: var(--space-6);
+  }
+
+  .section-heading--center {
+    text-align: center;
+  }
+
+  .section-heading__title {
+    font-size: var(--text-h2);
+    margin-top: 0.875rem;
+  }
+
+  .section-heading--dark .section-heading__title {
+    color: var(--color-ivory);
+  }
+
+  .section-heading--sage .section-heading__title {
+    color: var(--color-ink);
+  }
+
+  .section-heading--sage .gold-bar {
+    background-color: var(--color-gold);
+  }
+
+  .section-heading .gold-bar {
+    margin-top: var(--space-3);
+  }
+</style>

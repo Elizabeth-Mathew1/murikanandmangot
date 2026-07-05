@@ -1,0 +1,101 @@
+---
+import { getCollection } from 'astro:content';
+import { contentSlug } from '../../utils/content';
+import PageLayout from '../../layouts/PageLayout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import PersonCard from '../../components/PersonCard.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import CtaBand from '../../components/CtaBand.astro';
+
+export async function getStaticPaths() {
+  const areas = await getCollection('practice-areas');
+  return areas.map((area) => ({
+    params: { slug: contentSlug(area.id) },
+    props: { area },
+  }));
+}
+
+const { area } = Astro.props;
+const { Content } = await area.render();
+
+const allPeople = await getCollection('people');
+const relatedPeople = allPeople
+  .filter((p) => p.data.practiceAreaSlugs?.includes(contentSlug(area.id)))
+  .sort((a, b) => a.data.order - b.data.order);
+
+const allInsights = await getCollection('insights');
+const category = area.data.category;
+const relatedInsights = category
+  ? allInsights
+      .filter((i) => i.data.category === category)
+      .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+      .slice(0, 3)
+  : [];
+
+const canonicalUrl = new URL(`/practice-areas/${contentSlug(area.id)}`, Astro.site).href;
+---
+
+<PageLayout
+  title={area.data.title}
+  description={area.data.summary}
+  canonicalUrl={canonicalUrl}
+>
+  <section class="section section--ivory">
+    <div class="container practice-page">
+      <SectionHeading eyebrow="Practice Area" heading={area.data.title} />
+      <div class="prose practice-page__body">
+        <Content />
+      </div>
+    </div>
+  </section>
+
+  {relatedPeople.length > 0 && (
+    <section class="section section--ivory section--border-top">
+      <div class="container">
+        <SectionHeading eyebrow="Our People" heading="People in this area" />
+        <div class="grid-4">
+          {relatedPeople.map((person) => (
+            <PersonCard
+              name={person.data.name}
+              slug={contentSlug(person.id)}
+              role={person.data.role}
+              photo={person.data.photo}
+              focusAreas={person.data.focusAreas}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {relatedInsights.length > 0 && (
+    <section class="section section--ivory section--border-top">
+      <div class="container">
+        <SectionHeading eyebrow="Insights" heading="Related articles" />
+        <div class="grid-3">
+          {relatedInsights.map((article) => (
+            <ArticleCard
+              title={article.data.title}
+              slug={contentSlug(article.id)}
+              category={article.data.category}
+              excerpt={article.data.excerpt}
+              publishDate={article.data.publishDate}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <CtaBand />
+</PageLayout>
+
+<style>
+  .practice-page {
+    max-width: calc(var(--prose-width) + 4rem);
+  }
+
+  .practice-page__body {
+    margin-top: var(--space-4);
+  }
+</style>

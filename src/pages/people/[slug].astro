@@ -1,0 +1,195 @@
+---
+import { getCollection } from 'astro:content';
+import { contentSlug } from '../../utils/content';
+
+export async function getStaticPaths() {
+  const people = await getCollection('people');
+  return people.map((person) => ({
+    params: { slug: contentSlug(person.id) },
+    props: { person },
+  }));
+}
+
+import PageLayout from '../../layouts/PageLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { SITE } from '../../data/site';
+
+const { person } = Astro.props;
+const { Content } = await person.render();
+
+const allInsights = await getCollection('insights');
+const relatedInsights = allInsights
+  .filter((i) => i.data.author === person.data.name)
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+
+const canonicalUrl = new URL(`/people/${contentSlug(person.id)}`, Astro.site).href;
+
+const attorneySchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Attorney',
+  name: person.data.name,
+  jobTitle: person.data.role,
+  worksFor: { '@type': 'LegalService', name: SITE.name },
+  knowsLanguage: person.data.languages,
+};
+---
+
+<PageLayout
+  title={person.data.name}
+  description={`Profile of ${person.data.name}, ${person.data.role} at ${SITE.name}.`}
+  canonicalUrl={canonicalUrl}
+  schema={attorneySchema}
+>
+  <section class="section section--ivory">
+    <div class="container profile">
+      <div class="profile__layout">
+        <img
+          src={person.data.photo}
+          alt={`Portrait of ${person.data.name}`}
+          class="profile__photo"
+          width="400"
+          height="493"
+          loading="eager"
+          decoding="async"
+        />
+        <div class="profile__main">
+          <p class="eyebrow eyebrow--light">{person.data.role}</p>
+          <h1 class="profile__name">{person.data.name}</h1>
+          <div class="profile__tags">
+            {person.data.focusAreas.map((area) => (
+              <span class="profile__tag">{area}</span>
+            ))}
+          </div>
+          <div class="prose profile__bio">
+            <Content />
+          </div>
+          <dl class="profile__details">
+            <div>
+              <dt>Education</dt>
+              <dd>
+                <ul>
+                  {person.data.education.map((edu) => <li>{edu}</li>)}
+                </ul>
+              </dd>
+            </div>
+            <div>
+              <dt>Bar enrolment</dt>
+              <dd>{person.data.barYear}</dd>
+            </div>
+            <div>
+              <dt>Languages</dt>
+              <dd>{person.data.languages.join(', ')}</dd>
+            </div>
+          </dl>
+          <a href="/contact" class="text-link">Get in touch →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {relatedInsights.length > 0 && (
+    <section class="section section--ivory section--border-top">
+      <div class="container">
+        <h2 class="profile__related-title">Articles by {person.data.name.split(' ').slice(-1)[0]}</h2>
+        <div class="grid-3">
+          {relatedInsights.map((article) => (
+            <ArticleCard
+              title={article.data.title}
+              slug={contentSlug(article.id)}
+              category={article.data.category}
+              excerpt={article.data.excerpt}
+              publishDate={article.data.publishDate}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+</PageLayout>
+
+<style>
+  .profile__layout {
+    display: grid;
+    gap: var(--space-6);
+  }
+
+  @media (min-width: 768px) {
+    .profile__layout {
+      grid-template-columns: minmax(200px, 280px) 1fr;
+      gap: var(--space-8);
+      align-items: start;
+    }
+  }
+
+  .profile__photo {
+    width: 100%;
+    border-radius: var(--radius-card);
+    aspect-ratio: 3 / 3.4;
+    object-fit: cover;
+    background-color: var(--color-card-border);
+  }
+
+  @media (max-width: 767px) {
+    .profile__photo {
+      display: block;
+      max-width: 14rem;
+      margin-inline: auto;
+      aspect-ratio: 3 / 3.2;
+    }
+  }
+
+  .profile__name {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    margin-top: 0.5rem;
+    margin-bottom: var(--space-2);
+  }
+
+  .profile__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: var(--space-4);
+  }
+
+  .profile__tag {
+    font-size: 0.8125rem;
+    padding: 0.375rem 0.75rem;
+    border: 1px solid var(--color-card-border);
+    border-radius: var(--radius-button);
+    color: var(--color-muted);
+  }
+
+  .profile__bio {
+    margin-bottom: var(--space-4);
+  }
+
+  .profile__details {
+    display: grid;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+  }
+
+  .profile__details dt {
+    font-size: var(--text-eyebrow);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-gold-deep);
+    margin-bottom: 0.375rem;
+  }
+
+  .profile__details dd {
+    font-size: var(--text-body);
+    color: var(--color-body);
+  }
+
+  .profile__details ul {
+    list-style: disc;
+    padding-left: var(--space-3);
+  }
+
+  .profile__related-title {
+    font-size: var(--text-h2);
+    margin-bottom: var(--space-6);
+  }
+</style>

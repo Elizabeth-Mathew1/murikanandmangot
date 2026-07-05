@@ -1,0 +1,91 @@
+---
+interface Props {
+  name: string;
+  slug: string;
+  role: string;
+  photo: string;
+  focusAreas: string[];
+}
+
+const { name, slug, role, photo, focusAreas } = Astro.props;
+const focus = focusAreas.join(', ');
+---
+
+<article class="person-card">
+  <a href={`/people/${slug}`} class="person-card__image-link">
+    <img
+      src={photo}
+      alt={`Portrait of ${name}`}
+      class="person-card__image"
+      width="400"
+      height="493"
+      loading="lazy"
+      decoding="async"
+    />
+  </a>
+  <div class="person-card__body">
+    <h3 class="person-card__name">
+      <a href={`/people/${slug}`}>{name}</a>
+    </h3>
+    <p class="person-card__role">{role}</p>
+    <p class="person-card__focus">{focus}</p>
+    <a href={`/people/${slug}`} class="text-link person-card__link">View profile →</a>
+  </div>
+</article>
+
+<style>
+  .person-card__image-link {
+    display: block;
+    border-radius: var(--radius-card);
+    overflow: hidden;
+  }
+
+  .person-card__image {
+    width: 100%;
+    aspect-ratio: 3 / 3.4;
+    object-fit: cover;
+    background-color: var(--color-card-border);
+  }
+
+  @media (max-width: 767px) {
+    .person-card__image {
+      aspect-ratio: 3 / 3.1;
+    }
+  }
+
+  .person-card__body {
+    margin-top: var(--space-2);
+  }
+
+  .person-card__name {
+    font-size: var(--text-h3);
+  }
+
+  .person-card__name a {
+    color: inherit;
+  }
+
+  .person-card__name a:hover,
+  .person-card__name a:focus-visible {
+    color: var(--color-gold-deep);
+  }
+
+  .person-card__role {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--color-gold);
+    margin-top: 0.375rem;
+  }
+
+  .person-card__focus {
+    font-size: 0.875rem;
+    color: var(--color-muted);
+    margin-top: 0.375rem;
+  }
+
+  .person-card__link {
+    display: inline-block;
+    margin-top: 0.75rem;
+    font-size: 0.8125rem;
+  }
+</style>
