@@ -82,11 +82,11 @@ const approachItems = [
       </div>
       <div class="intro__image-wrap">
         <img
-          src="/images/office/intro.jpg"
-          alt="Firm office interior or Ernakulam courthouse architecture"
+          src="/images/hero/gathering-office.jpg"
+          alt="Colleagues gathered in the office"
           class="intro__image"
-          width="640"
-          height="420"
+          width="1024"
+          height="770"
           loading="lazy"
           decoding="async"
         />
@@ -215,14 +215,24 @@ const approachItems = [
   }
 
   .intro__image-wrap {
+    position: relative;
     border-radius: var(--radius-card);
     overflow: hidden;
+  }
+
+  .intro__image-wrap::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: color-mix(in srgb, var(--color-hero-overlay) 28%, transparent);
+    pointer-events: none;
   }
 
   .intro__image {
     width: 100%;
     aspect-ratio: 16 / 9;
     object-fit: cover;
+    object-position: center 40%;
     background-color: var(--color-card-border);
   }
 
